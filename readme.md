@@ -1,10 +1,7 @@
 # API-IDEE Community Plugins
 
 Repositorio de plugins comunitarios para la **API IDEE**. Este proyecto contiene plugins desarrollados por la comunidad que extienden las funcionalidades de la API IDEE.
-
-## Descripción
-
-Este repositorio alberga plugins comunitarios que pueden ser utilizados con la API IDEE para añadir funcionalidades adicionales a aplicaciones de mapas web.
+Los plugins que pueden ser utilizados con la API IDEE para añadir funcionalidades adicionales a aplicaciones de mapas web.
 
 ## Estructura del Proyecto
 
@@ -14,26 +11,31 @@ API-IDEE_CommunityPlugins/
 │   └── domain.js               # Configuración del dominio y de recursos estáticos de la API-IDEE
 │   └── plugins.js              # Configuración necesaria para la galería
 ├── data/                       # Datos
-│   └── plugins.json            # Ficheros donde se da de alta todos los plugins disponibles para mostrar en la galería
+│   └── plugins.json            # Ficheros donde se dan de alta todos los plugins disponibles para mostrar en la galería
 └── gallery/                    # Galería de ejemplo de los plugins
-│   └── basic/                  # Ejemplo del plugin básico
-│   └── .../                    # Otros plugins
+│   └── basic/                  # Test para mostrar en la galería del plugin básico (interactivo)
+│   └── .../                    # Otros test de plugins
+│   └── index.html              # Página principal de la galería
 ├── plugins/                    # Plugins disponibles (source)
 │   └── basic/                  # Plugin básico (plantilla para crear otros plugins)
 │       ├── dist/               # Archivos compilados para producción
 │       ├── legacy/             # Histórico de versiones del plugin
 │       ├── playwright-config/  # Configuración playwright
 │       ├── src/                # Código fuente
-│       ├── test/               # Tests
+│       ├── task/               # Tareas npm
+│       ├── test/               # Tests de desarrollo
 │       └── webpack-config/     # Configuraciones de Webpack
 │       └── README.md           # Documentación del plugin
+│       └── ...                 # Otros ficheros
 │   └── ...                     # Otros plugins
 ├── readme.md                   # Documentación del proyecto 
+├── resources                   # Directorio de recursos útiles
+├── ...                         # Otros ficheros
 ```
 
 ## Guía de uso de plugins en visualizadores
 
-Para hacer uso de los plugins disponibles en API-IDEE Community Plugins incluye los archivos CSS y JS correspondientes al plugin que deseas añadir a tu visualizador:
+Para hacer uso de los plugins disponibles en API-IDEE Community Plugins importa los archivos CSS y JS correspondientes al plugin que deseas añadir a tu visualizador:
 
 Ejemplo con el plugin Basic:
 ```html
@@ -67,7 +69,7 @@ map.addPlugin(mp);
 ```
 
 
-## Versiones
+## Versionado
 
 Existe un histórico de versiones de todos los plugins en el directorio `legacy/` de cada uno de ellos. 
 Es recomendable fijar las versiones para evitar errores inesperados.
@@ -147,40 +149,43 @@ plugin-name/
 │   ├── prod.html        # Test desarrollo compilado (HTML + JS)
 └── webpack-config/      # Configuraciones de Webpack
 └── README.md            # Documentación del plugin
+└── ...                  # Otros ficheros y directorios
 ```
 
 ### Testing
 
-Cada plugin incluye archivos de prueba en el directorio `test/`:
+Cada plugin incluye archivos de test de desarrollo en el directorio `test/`:
 - `dev.html` - Para pruebas en desarrollo
-- `prod.html` - Para pruebas con el plugin compilado
+- `prod.html` - Para pruebas en desarrollo con el plugin compilado
 
-Además se incluyen test automáticos para pruebas repetitivas o comprobaciones tras cambio de versiones.
+Además se incluyen test automáticos para pruebas repetitivas o comprobaciones tras cambio de versiones/modificaciones.
 
 
 ### Contribución
 
-Las contribuciones son bienvenidas. Para contribuir:
-1. Fork el repositorio
-2. Crea una rama para tu feature (`git checkout -b feat_nuevo-plugin`)
+¡Tus aportes son bienvenidos! Para colaborar:
+1. Realiza un fork de nuestro repositorio
+2. Crea una rama para tu feature (`git checkout -b feat_nombre_nuevo-plugin`)
 3. Desarrolla tu plugin siguiendo la estructura establecida
-   > 3.1. Copia la estructura del plugin `basic` como plantilla o usa la herramienta de npm [api-idee-create-plugin](https://www.npmjs.com/package/api-idee-create-plugin)  
+   > 3.1. Copia la estructura del plugin `basic` como plantilla o usa la herramienta de npm [api-idee-create-plugin](https://www.npmjs.com/package/api-idee-create-plugin) para crear una base para tu plugin
+   Nota: en caso de copiar el plugin basic será necesario reemplazar basic/Basic por el nombre de tu plugin
    > 3.2. Modifica los archivos según tus necesidades  
-   > 3.3. Desarrolla las implementaciones para OpenLayers y/o Cesium
-   > 3.4. Implementa test de desarrollo y automático
+   > 3.3. Desarrolla las implementaciones para OpenLayers y/o Cesium (no es necesario que estén ambas implementadas pero al menos debe contar con la estructura básica)
+   > 3.4. Implementar test en desarrollo y automático (playwright)
 4. Compila y prueba tu plugin
 5. Desarrolla un test funcional en la galería (Puedes usar como plantilla el plugin basic)
-6. Envía un Pull Request
+6. Dar de alta en el json de plugins (/data/plugins) el plugin desarrollado (necesario para que aparezca en la galería)
+7. Envía un Pull Request
 
 
 <a id="normas-pull-request"></a>Para que un Pull Request sea aceptado se deben cumplir las siguientes normas:
-1. Disponer del directorio "legacy" en su raíz donde se almacenarán el histórico de versiones
+1. Disponer del directorio "legacy" en la raíz de la carpeta del plugin donde se almacenarán el histórico de versiones
 2. Tener documentado correctamente el fichero api.json y README.md
 3. Disponer de la implementación en OpenLayers y/o en Cesium JS
 Nota: no es necesario el desarrollo de ambas implementaciones pero si de la estructura básica
 4. Compilar correctamente
 5. Disponer de al menos 1 test en la galería, este test debe ser interactivo permitiendo visualizar todos los parámetros disponibles e interactuar con ellos
-6. Aunque no es obligatorio, se recomienda crear al menos un test automático con playwright. Puedes ver un ejemplo en el plugin basic dentro de su carpeta test/playwright
+6. Crear al menos un test automático con playwright. Puedes ver un ejemplo en el plugin basic dentro de su carpeta test/playwright
 
 
 #### Migración
@@ -211,15 +216,11 @@ Nota: si tienes configuraciones extras debes añadirlas a estos ficheros.
 3. Revisa tus ficheros task:
 Dentro del plugin existe un directorio task.
 Puedes sustituir los ficheros por los de `resources/task` para que cumplan con los requisitos de API-IDEE Community Plugins.
-Nota: si tienes configuraciones extras debes añadirlas a estos ficheros.
+Nota: si tienes configuraciones extras debes añadirlas a estos ficheros
 
-4. Aunque no es obligatorio, se recomienda crear al menos un test automático con playwright. Puedes ver un ejemplo en el plugin basic dentro de su carpeta test/playwright
+4. [Revisa las normas](#normas-pull-request) antes de hacer el Pull Request.
 
-4. No olvides crear el test en la galería.
-
-5. [Revisa las normas](#normas-pull-request) antes de hacer el Pull Request.
-
-6. ¡GRACIAS!
+5. ¡GRACIAS!
 
 
 ## 📄 Licencia
