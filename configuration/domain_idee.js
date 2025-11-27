@@ -1,0 +1,1 @@
+const IDEE_DOMAIN = 'https://componentes.idee.es/api-idee';
