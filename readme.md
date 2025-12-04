@@ -8,8 +8,7 @@ Los plugins que pueden ser utilizados con la API IDEE para añadir funcionalidad
 ```
 API-IDEE_CommunityPlugins/
 ├── configuration/              # Configuración 
-│   └── domain_idee.js          # Configuración del dominio de la API-IDEE
-│   └── domain_resources.js     # Configuración de recursos estáticos de la API-IDEE
+│   └── domain_idee.js          # Configuraciones
 │   └── plugins.js              # Configuración necesaria para la galería
 ├── data/                       # Datos
 │   └── plugins.json            # Ficheros donde se dan de alta todos los plugins disponibles para mostrar en la galería

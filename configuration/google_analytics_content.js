@@ -1,4 +1,4 @@
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-19NTRSBP21');
+gtag('config', GOOGLE_ANALYTICS_ID);

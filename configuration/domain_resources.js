@@ -1,1 +1,0 @@
-const IDEE_STATIC_RESOURCES = 'https://componentes.idee.es/estaticos';
