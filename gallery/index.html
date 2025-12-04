@@ -291,6 +291,7 @@
 
     <script src="../configuration/domain_idee.js"></script>
     <script src="../configuration/domain_resources.js"></script>
+    <script src="../configuration/google_analytics_id.js"></script>
     <script>
         (function() {
             var stringtoolsScript = document.createElement('script');
@@ -306,15 +307,11 @@
 </body>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-19NTRSBP21"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'G-19NTRSBP21');
+<script type="text/javascript">
+	document.write(`<script async src="https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}"><\/script>`);
 </script>
+
+<script type="text/javascript"
+	src="../configuration/google_analytics_content.js"></script>
 
 </html>
