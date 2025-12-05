@@ -1,12 +1,12 @@
 [
-    {
-      "name": "basic",
-      "plugin": "[basic]",
-      "version": "v1.0.0",
-      "url_es": "basic.html?language=es",
-      "url_en": "basic.html?language=en",
-      "url_git": "https://github.com/Desarrollos-IDEE/API-IDEE_CommunityPlugins/tree/main/plugins/basic",
-      "description": "Plugin plantilla para crear otros plugins.",
-      "obsolete": false
-    }
-  ]
+  {
+    "name": "basic",
+    "plugin": "[basic]",
+    "version": "v1.0.0",
+    "url_es": "../gallery/basic/test.html?language=es",
+    "url_en": "../gallery/basic/test.html?language=en",
+    "url_git": "https://github.com/Desarrollos-IDEE/API-IDEE_CommunityPlugins/tree/main/plugins/basic",
+    "description": "Plugin plantilla para crear otros plugins.",
+    "obsolete": false
+  }
+]
