@@ -7,11 +7,11 @@ Los plugins que pueden ser utilizados con la API IDEE para añadir funcionalidad
 
 ```
 API-IDEE_CommunityPlugins/
-├── configuration/              # Configuración 
-│   └── domain_idee.js          # Configuraciones
-│   └── plugins.js              # Configuración necesaria para la galería
+├── configuration/              # Directorio para configuraciones
+│   └── config.js               # Configuraciones de dominio API-IDEE y recursos estáticos y definición de ID para Google Analytics
+│   └── plugins.js              # Fichero necesario para generar la galería (estático)
 ├── data/                       # Datos
-│   └── plugins.json            # Ficheros donde se dan de alta todos los plugins disponibles para mostrar en la galería
+│   └── plugins.json            # Ficheros donde se dan de alta todos los plugins disponibles para mostrar en la galería y permitir su uso por API-REST
 └── gallery/                    # Galería de ejemplo de los plugins
 │   └── basic/                  # Test para mostrar en la galería del plugin básico (interactivo)
 │   └── .../                    # Otros test de plugins
