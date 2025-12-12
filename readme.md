@@ -159,6 +159,7 @@ Cada plugin incluye archivos de test de desarrollo en el directorio `test/`:
 - `prod.html` - Para pruebas en desarrollo con el plugin compilado
 
 Además se incluyen test automáticos para pruebas repetitivas o comprobaciones tras cambio de versiones/modificaciones.
+Para la ejecución de test automáticos es necesario ejecutar previamente `npx -y playwright@1.50.1 install` para instalar playwright en la máquina.
 
 
 ### Contribución
@@ -218,9 +219,12 @@ Dentro del plugin existe un directorio task.
 Puedes sustituir los ficheros por los de `resources/task` para que cumplan con los requisitos de API-IDEE Community Plugins.
 Nota: si tienes configuraciones extras debes añadirlas a estos ficheros
 
-4. [Revisa las normas](#normas-pull-request) antes de hacer el Pull Request.
+4. Añade la configuración de playwright:
+En la raíz del directorio del plugin copia la carpeta `playwright-config`.
 
-5. ¡GRACIAS!
+5. [Revisa las normas](#normas-pull-request) antes de hacer el Pull Request.
+
+6. ¡GRACIAS!
 
 
 ## 📄 Licencia
