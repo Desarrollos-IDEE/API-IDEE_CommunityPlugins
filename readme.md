@@ -212,8 +212,9 @@ Nota: por lo general, tendrás algunos comandos ya establecidos pero serán nece
 2. Revisa la configuración de Webpack:
 Dentro del plugin existe un directorio webpack-config.
 Puedes sustituir los ficheros por los de `resources/webpack-config` para que cumplan con los requisitos de API-IDEE Community Plugins.
-Nota: si tienes configuraciones extras debes añadirlas a estos ficheros.
-Si dispones en tu plugin de la carpeta `src/facade/assets/images` debes descomentar las líneas:
+Notas: 
+- Si tienes configuraciones extras debes añadirlas a estos ficheros.
+- Si dispones en tu plugin de la carpeta `src/facade/assets/images` debes descomentar las líneas:
 <pre>
         // , {
         //   from: 'src/facade/assets/images',
@@ -221,6 +222,21 @@ Si dispones en tu plugin de la carpeta `src/facade/assets/images` debes descomen
         // },
 </pre>
 de los ficheros `webpack.production-cesium.config.js` y `webpack.production-ol.config.js`.
+- Debes modificar
+<pre>
+    'basic.cesium.min': path.resolve(__dirname, '..', 'src', 'index-cesium.js'),
+    [`basic-${pjson.version}.cesium.min`]: path.resolve(__dirname, '..', 'src', 'index-cesium.js'),
+</pre>
+del fichero `webpack.production-cesium.config.js`
+y 
+<pre>
+  entry: {
+    'basic.ol.min': path.resolve(__dirname, '..', 'src', 'index-ol.js'),
+    [`basic-${pjson.version}.ol.min`]: path.resolve(__dirname, '..', 'src', 'index-ol.js'),
+  },
+</pre>
+del fichero `webpack.production-ol.config.js`
+sustituyendo basic por el nombre de tu plugin.
 
 3. Revisa tus ficheros task:
 Dentro del plugin existe un directorio task.
