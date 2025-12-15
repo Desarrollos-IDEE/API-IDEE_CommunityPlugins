@@ -213,6 +213,14 @@ Nota: por lo general, tendrás algunos comandos ya establecidos pero serán nece
 Dentro del plugin existe un directorio webpack-config.
 Puedes sustituir los ficheros por los de `resources/webpack-config` para que cumplan con los requisitos de API-IDEE Community Plugins.
 Nota: si tienes configuraciones extras debes añadirlas a estos ficheros.
+Si dispones en tu plugin de la carpeta `src/facade/assets/images` debes descomentar las líneas:
+<pre>
+        // , {
+        //   from: 'src/facade/assets/images',
+        //   to: 'images',
+        // },
+</pre>
+de los ficheros `webpack.production-cesium.config.js` y `webpack.production-ol.config.js`.
 
 3. Revisa tus ficheros task:
 Dentro del plugin existe un directorio task.
