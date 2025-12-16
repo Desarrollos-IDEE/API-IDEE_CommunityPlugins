@@ -171,7 +171,14 @@ Para la ejecución de test automáticos es necesario ejecutar previamente `npx -
    > 3.1. Copia la estructura del plugin `archetype` como plantilla o usa la herramienta de npm [api-idee-create-plugin](https://www.npmjs.com/package/api-idee-create-plugin) para crear una base para tu plugin
    Nota: en caso de copiar el plugin archetype será necesario reemplazar archetype/Archetype por el nombre de tu plugin
    > 3.2. Modifica los archivos según tus necesidades  
-   > 3.3. Desarrolla las implementaciones para OpenLayers y/o Cesium (no es necesario que estén ambas implementadas pero al menos debe contar con la estructura básica)
+   > 3.3. Desarrolla las implementaciones para OpenLayers y/o Cesium (no es necesario que estén ambas implementadas pero al menos debe contar con la estructura básica). La estructura básica cuenta con:
+   - Creación de la estructura plugin/src/impl/cesium/js y plugin/src/impl/ol/js.
+   - Creación del fichero de implementación con al menos el contenido (ejemplo de Archetype):
+   <pre>
+      /**
+      * @module IDEE/impl/control/ArchetypeControl
+      */
+   </pre>
    > 3.4. Implementar test en desarrollo y automático (playwright)
 4. Compila y prueba tu plugin
 5. Desarrolla un test funcional en la galería (Puedes usar como plantilla el plugin archetype)
@@ -243,12 +250,19 @@ Dentro del plugin existe un directorio task.
 Puedes sustituir los ficheros por los de `resources/task` para que cumplan con los requisitos de API-IDEE Community Plugins.
 Nota: si tienes configuraciones extras debes añadirlas a estos ficheros
 
-4. Añade la configuración de playwright:
+4. Configuración básica .eslintrc:
+En la raíz del del plugin debe existir el fichero .eslintrc.
+Puedes usar de base el de `resources/.eslintrc`.
+
+5. Añade la configuración de playwright:
 En la raíz del directorio del plugin copia la carpeta `playwright-config`.
 
-5. [Revisa las normas](#normas-pull-request) antes de hacer el Pull Request.
+6. Actualización de librerías en package.json:
+Es recomendable actualizar las librerías de tu plugin en fichero package.json principalmente las librerías comunes que se encuentran con el plugin archetype.
 
-6. ¡GRACIAS!
+7. [Revisa las normas](#normas-pull-request) antes de hacer el Pull Request.
+
+8. ¡GRACIAS!
 
 
 ## 📄 Licencia
