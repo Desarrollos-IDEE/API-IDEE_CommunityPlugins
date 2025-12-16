@@ -12,8 +12,8 @@ const pjson = require(PJSON_PATH);
 module.exports = {
   mode: 'production',
   entry: {
-    'basic.ol.min': path.resolve(__dirname, '..', 'src', 'index-ol.js'),
-    [`basic-${pjson.version}.ol.min`]: path.resolve(__dirname, '..', 'src', 'index-ol.js'),
+    'archetype.ol.min': path.resolve(__dirname, '..', 'src', 'index-ol.js'),
+    [`archetype-${pjson.version}.ol.min`]: path.resolve(__dirname, '..', 'src', 'index-ol.js'),
   },
   output: {
     path: path.resolve(__dirname, '..', 'dist'),

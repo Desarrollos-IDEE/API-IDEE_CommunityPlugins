@@ -1,12 +1,12 @@
 [
   {
-    "name": "basic",
-    "plugin": "[basic]",
+    "name": "archetype",
+    "plugin": "[archetype]",
     "version": "v1.0.0",
-    "url_es": "../gallery/basic/test.html?language=es",
-    "url_en": "../gallery/basic/test.html?language=en",
-    "url_git": "https://github.com/Desarrollos-IDEE/API-IDEE_CommunityPlugins/tree/main/plugins/basic",
-    "description": "Plugin plantilla para crear otros plugins.",
+    "url_es": "../gallery/archetype/test.html?language=es",
+    "url_en": "../gallery/archetype/test.html?language=en",
+    "url_git": "https://github.com/Desarrollos-IDEE/API-IDEE_CommunityPlugins/tree/main/plugins/archetype",
+    "description": "Plugin plantilla para crear otros plugins externos.",
     "obsolete": false
   }
 ]

@@ -13,11 +13,11 @@ API-IDEE_CommunityPlugins/
 ├── data/                       # Datos
 │   └── plugins.json            # Ficheros donde se dan de alta todos los plugins disponibles para mostrar en la galería y permitir su uso por API-REST
 └── gallery/                    # Galería de ejemplo de los plugins
-│   └── basic/                  # Test para mostrar en la galería del plugin básico (interactivo)
+│   └── archetype/              # Test para mostrar en la galería del plugin básico (interactivo)
 │   └── .../                    # Otros test de plugins
 │   └── index.html              # Página principal de la galería
 ├── plugins/                    # Plugins disponibles (source)
-│   └── basic/                  # Plugin básico (plantilla para crear otros plugins)
+│   └── archetype/              # Plugin básico (plantilla para crear otros plugins)
 │       ├── dist/               # Archivos compilados para producción
 │       ├── legacy/             # Histórico de versiones del plugin
 │       ├── playwright-config/  # Configuración playwright
@@ -37,15 +37,15 @@ API-IDEE_CommunityPlugins/
 
 Para hacer uso de los plugins disponibles en API-IDEE Community Plugins importa los archivos CSS y JS correspondientes al plugin que deseas añadir a tu visualizador:
 
-Ejemplo con el plugin Basic:
+Ejemplo con el plugin Archetype:
 ```html
 <!-- Para implementación OpenLayers -->
-<link href="https://componentes.idee.es/api-idee-communityplugins/plugins/basic/dist/basic.ol.min.css" rel="stylesheet" />
-<script type="text/javascript" src="https://componentes.idee.es/api-idee-communityplugins/plugins/basic/dist/basic.ol.min.js"></script>
+<link href="https://componentes.idee.es/api-idee-communityplugins/plugins/archetype/dist/archetype.ol.min.css" rel="stylesheet" />
+<script type="text/javascript" src="https://componentes.idee.es/api-idee-communityplugins/plugins/archetype/dist/archetype.ol.min.js"></script>
 
 <!-- Para implementación Cesium -->
-<link href="https://componentes.idee.es/api-idee-communityplugins/plugins/basic/dist/basic.cesium.min.css" rel="stylesheet" />
-<script type="text/javascript" src="https://componentes.idee.es/api-idee-communityplugins/plugins/basic/dist/basic.cesium.min.js"></script>
+<link href="https://componentes.idee.es/api-idee-communityplugins/plugins/archetype/dist/archetype.cesium.min.css" rel="stylesheet" />
+<script type="text/javascript" src="https://componentes.idee.es/api-idee-communityplugins/plugins/archetype/dist/archetype.cesium.min.js"></script>
 ```
 
 ### Ejemplo de Uso
@@ -57,7 +57,7 @@ const map = IDEE.map({
 });
 
 // Instanciar el plugin
-const mp = new IDEE.plugin.Basic({
+const mp = new IDEE.plugin.Archetype({
     position: 'TR',
     collapsed: true,
     collapsible: true,
@@ -74,18 +74,18 @@ map.addPlugin(mp);
 Existe un histórico de versiones de todos los plugins en el directorio `legacy/` de cada uno de ellos. 
 Es recomendable fijar las versiones para evitar errores inesperados.
 
-Ejemplo con el plugin Basic, implementación OpenLayers y versión 1.0.0:
+Ejemplo con el plugin Archetype, implementación OpenLayers y versión 1.0.0:
 ```html
-<link href="https://componentes.idee.es/api-idee-communityplugins/plugins/basic/legacy/basic-1.0.0.ol.min.css" rel="stylesheet" />
-<script type="text/javascript" src="https://componentes.idee.es/api-idee-communityplugins/plugins/basic/legacy/basic-1.0.0.ol.min.js"></script>
+<link href="https://componentes.idee.es/api-idee-communityplugins/plugins/archetype/legacy/archetype-1.0.0.ol.min.css" rel="stylesheet" />
+<script type="text/javascript" src="https://componentes.idee.es/api-idee-communityplugins/plugins/archetype/legacy/archetype-1.0.0.ol.min.js"></script>
 ```
 
 Para conocer todas las versiones disponibles es necesario acceder a la carpeta legacy del plugin.
 En caso de no desear fijar versión y disponer del plugin siempre actualizado en el visualizador se apuntaría a la carpeta dist del plugin.
-Ejemplo con el plugin Basic:
+Ejemplo con el plugin Archetype:
 ```html
-<link href="https://componentes.idee.es/api-idee-communityplugins/plugins/basic/dist/basic.ol.min.css" rel="stylesheet" />
-<script type="text/javascript" src="https://componentes.idee.es/api-idee-communityplugins/plugins/basic/dist/basic.ol.min.js"></script>
+<link href="https://componentes.idee.es/api-idee-communityplugins/plugins/archetype/dist/archetype.ol.min.css" rel="stylesheet" />
+<script type="text/javascript" src="https://componentes.idee.es/api-idee-communityplugins/plugins/archetype/dist/archetype.ol.min.js"></script>
 ```
 
 
@@ -107,9 +107,9 @@ cd API-IDEE_CommunityPlugins
 
 2. **Instalar dependencias del plugin**
 
-Ejemplo con el plugin Basic:
+Ejemplo con el plugin Archetype:
 ```bash
-cd plugins/basic
+cd plugins/archetype
 npm install
 ```
 
@@ -168,13 +168,13 @@ Para la ejecución de test automáticos es necesario ejecutar previamente `npx -
 1. Realiza un fork de nuestro repositorio
 2. Crea una rama para tu feature (`git checkout -b feat_nombre_nuevo-plugin`)
 3. Desarrolla tu plugin siguiendo la estructura establecida
-   > 3.1. Copia la estructura del plugin `basic` como plantilla o usa la herramienta de npm [api-idee-create-plugin](https://www.npmjs.com/package/api-idee-create-plugin) para crear una base para tu plugin
-   Nota: en caso de copiar el plugin basic será necesario reemplazar basic/Basic por el nombre de tu plugin
+   > 3.1. Copia la estructura del plugin `archetype` como plantilla o usa la herramienta de npm [api-idee-create-plugin](https://www.npmjs.com/package/api-idee-create-plugin) para crear una base para tu plugin
+   Nota: en caso de copiar el plugin archetype será necesario reemplazar archetype/Archetype por el nombre de tu plugin
    > 3.2. Modifica los archivos según tus necesidades  
    > 3.3. Desarrolla las implementaciones para OpenLayers y/o Cesium (no es necesario que estén ambas implementadas pero al menos debe contar con la estructura básica)
    > 3.4. Implementar test en desarrollo y automático (playwright)
 4. Compila y prueba tu plugin
-5. Desarrolla un test funcional en la galería (Puedes usar como plantilla el plugin basic)
+5. Desarrolla un test funcional en la galería (Puedes usar como plantilla el plugin archetype)
 6. Dar de alta en el json de plugins (/data/plugins) el plugin desarrollado (necesario para que aparezca en la galería)
 7. Envía un Pull Request
 
@@ -186,7 +186,7 @@ Para la ejecución de test automáticos es necesario ejecutar previamente `npx -
 Nota: no es necesario el desarrollo de ambas implementaciones pero si de la estructura básica
 4. Compilar correctamente
 5. Disponer de al menos 1 test en la galería, este test debe ser interactivo permitiendo visualizar todos los parámetros disponibles e interactuar con ellos
-6. Crear al menos un test automático con playwright. Puedes ver un ejemplo en el plugin basic dentro de su carpeta test/playwright
+6. Crear al menos un test automático con playwright. Puedes ver un ejemplo en el plugin archetype dentro de su carpeta test/playwright
 
 
 #### Migración
@@ -224,19 +224,19 @@ Notas:
 de los ficheros `webpack.production-cesium.config.js` y `webpack.production-ol.config.js`.
 - Debes modificar
 <pre>
-    'basic.cesium.min': path.resolve(__dirname, '..', 'src', 'index-cesium.js'),
-    [`basic-${pjson.version}.cesium.min`]: path.resolve(__dirname, '..', 'src', 'index-cesium.js'),
+    'archetype.cesium.min': path.resolve(__dirname, '..', 'src', 'index-cesium.js'),
+    [`archetype-${pjson.version}.cesium.min`]: path.resolve(__dirname, '..', 'src', 'index-cesium.js'),
 </pre>
 del fichero `webpack.production-cesium.config.js`
 y 
 <pre>
   entry: {
-    'basic.ol.min': path.resolve(__dirname, '..', 'src', 'index-ol.js'),
-    [`basic-${pjson.version}.ol.min`]: path.resolve(__dirname, '..', 'src', 'index-ol.js'),
+    'archetype.ol.min': path.resolve(__dirname, '..', 'src', 'index-ol.js'),
+    [`archetype-${pjson.version}.ol.min`]: path.resolve(__dirname, '..', 'src', 'index-ol.js'),
   },
 </pre>
 del fichero `webpack.production-ol.config.js`
-sustituyendo basic por el nombre de tu plugin.
+sustituyendo archetype por el nombre de tu plugin.
 
 3. Revisa tus ficheros task:
 Dentro del plugin existe un directorio task.

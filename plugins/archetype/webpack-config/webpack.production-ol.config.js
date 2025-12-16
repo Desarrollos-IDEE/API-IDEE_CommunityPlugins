@@ -12,8 +12,8 @@ const pjson = require(PJSON_PATH);
 module.exports = {
   mode: 'production',
   entry: {
-    'archetype.cesium.min': path.resolve(__dirname, '..', 'src', 'index-cesium.js'),
-    [`archetype-${pjson.version}.cesium.min`]: path.resolve(__dirname, '..', 'src', 'index-cesium.js'),
+    'archetype.ol.min': path.resolve(__dirname, '..', 'src', 'index-ol.js'),
+    [`archetype-${pjson.version}.ol.min`]: path.resolve(__dirname, '..', 'src', 'index-ol.js'),
   },
   output: {
     path: path.resolve(__dirname, '..', 'dist'),
@@ -23,7 +23,7 @@ module.exports = {
     alias: {
       templates: path.resolve(__dirname, '../src/templates'),
       assets: path.resolve(__dirname, '../src/facade/assets'),
-      impl: path.resolve(__dirname, '../src/impl/cesium/js'),
+      impl: path.resolve(__dirname, '../src/impl/ol/js'),
       facade: path.resolve(__dirname, '../src/facade/js'),
     },
     extensions: ['.wasm', '.mjs', '.js', '.json', '.css', '.hbs', '.html'],
@@ -37,7 +37,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: /(node_modules\/(?!(cesium|@cesium))|bower_components)/,
+        exclude: /(node_modules\/(?!ol)|bower_components)/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -93,11 +93,10 @@ module.exports = {
         {
           from: 'src/api.json',
           to: 'api.json',
-        }
-        // , {
-        //   from: 'src/facade/assets/images',
-        //   to: 'images',
-        // },
+        }, {
+          from: 'src/facade/assets/images',
+          to: 'images',
+        },
       ],
     }),
   ],
