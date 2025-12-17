@@ -200,23 +200,8 @@ Nota: no es necesario el desarrollo de ambas implementaciones pero si de la estr
 
 ¿Tienes un plugin ya desarrollado y quieres añadirlo a nuestro repositorio? ¡También eres bienvenido!
 Sigue esta guía para poder contribuir:
-1. Comprueba que el fichero package.json dispone en el apartado "scripts", al menos, el siguiente contenido:
-```
-    "start": "webpack serve --config=webpack-config/webpack.development-ol.config.js",
-    "start:ol": "webpack serve --config=webpack-config/webpack.development-ol.config.js",
-    "start:cesium": "webpack serve --config=webpack-config/webpack.development-cesium.config.js",
-    "prebuild": "npm run prebuild:ol && npm run prebuild:cesium",
-    "prebuild:ol": "node task/create-entrypoint-ol.js",
-    "prebuild:cesium": "node task/create-entrypoint-cesium.js",
-    "build": "webpack --config=webpack-config/webpack.production-ol.config.js && webpack --config=webpack-config/webpack.production-cesium.config.js && npm run copy-legacy",
-    "copy-legacy": "node task/copy-to-legacy.js",
-    "test-build": "npm run build && live-server --open=test/prod.html",
-    "check": "eslint ./src",
-    "fix": "eslint --fix ./src"
-```
-Nota: por lo general, tendrás algunos comandos ya establecidos pero serán necesarios adaptarlos para que permitan sus despliegues tanto en OpenLayers como en Cesium, así como el versionado automático en legacy.
 
-2. Revisa la configuración de Webpack:
+1. Revisa la configuración de Webpack:
 Dentro del plugin existe un directorio webpack-config.
 Puedes sustituir los ficheros por los de `resources/webpack-config` para que cumplan con los requisitos de API-IDEE Community Plugins.
 Notas: 
@@ -245,25 +230,55 @@ y
 del fichero `webpack.production-ol.config.js`
 sustituyendo archetype por el nombre de tu plugin.
 
-3. Revisa tus ficheros task:
+2. Revisa tus ficheros task:
 Dentro del plugin existe un directorio task.
 Puedes sustituir los ficheros por los de `resources/task` para que cumplan con los requisitos de API-IDEE Community Plugins.
 Nota: si tienes configuraciones extras debes añadirlas a estos ficheros
+
+3. Añade la configuración de playwright:
+En la raíz del directorio del plugin copia la carpeta `resources/playwright-config`.
+Y si en el package.json no existe la dependencia "@playwright/test" añádela de la siguiente forma: "@playwright/test": "1.50.1".
 
 4. Configuración básica .eslintrc:
 En la raíz del del plugin debe existir el fichero .eslintrc.
 Puedes usar de base el de `resources/.eslintrc`.
 
-5. Añade la configuración de playwright:
-En la raíz del directorio del plugin copia la carpeta `playwright-config`.
-Y si en el package.json no existe la dependencia "@playwright/test" añádela de la siguiente forma: "@playwright/test": "1.50.1".
-
-6. Actualización de librerías en package.json:
+5. Actualización de librerías en package.json:
 Es recomendable actualizar las librerías de tu plugin en fichero package.json principalmente las librerías comunes que se encuentran con el plugin archetype.
 
-7. [Revisa las normas](#normas-pull-request) antes de hacer el Pull Request.
+6. Comprueba que el fichero package.json dispone en el apartado "scripts", al menos, el siguiente contenido:
+```
+    "start": "webpack serve --config=webpack-config/webpack.development-ol.config.js",
+    "start:ol": "webpack serve --config=webpack-config/webpack.development-ol.config.js",
+    "start:cesium": "webpack serve --config=webpack-config/webpack.development-cesium.config.js",
+    "prebuild": "npm run prebuild:ol && npm run prebuild:cesium",
+    "prebuild:ol": "node task/create-entrypoint-ol.js",
+    "prebuild:cesium": "node task/create-entrypoint-cesium.js",
+    "build": "webpack --config=webpack-config/webpack.production-ol.config.js && webpack --config=webpack-config/webpack.production-cesium.config.js && npm run copy-legacy",
+    "copy-legacy": "node task/copy-to-legacy.js",
+    "test-build": "npm run build && live-server --open=test/prod.html",
+    "check": "eslint ./src",
+    "fix": "eslint --fix ./src"
+```
+Nota: por lo general, tendrás algunos comandos ya establecidos pero serán necesarios adaptarlos para que permitan sus despliegues tanto en OpenLayers como en Cesium, así como el versionado automático en legacy.
 
-8. ¡GRACIAS!
+7. Los test del plugin deben apuntar a un despliegue de API-IDEE.
+
+8. Crear la estructura básica para Cesium (disponible en el plugin archetype).
+
+9. Renombrar, en caso de que exista, "M." por "IDEE.".
+
+9. Comprobar que el plugin compila correctamente. En caso de errores puedes consultar nuestro [fichero de errores conocidos](Errores%20conocidos.txt).
+
+10. Actualizar versión del plugin. Si es la primera vez que se sube debe tener la versión 1.0.0.
+
+11. Revisar readme y api.json del plugin.
+
+12. Si el plugin tiene su propio .gitignore es necesario revisar si es realmente necesario ya que este repositorio tiene su propio .gitignore.
+
+13. [Revisa las normas](#normas-pull-request) antes de hacer el Pull Request.
+
+14. ¡GRACIAS!
 
 
 ## 📄 Licencia
