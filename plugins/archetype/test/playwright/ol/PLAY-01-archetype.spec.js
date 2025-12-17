@@ -7,6 +7,7 @@ test('Test Archetype', async ({ page }) => {
       container: 'mapjs',
     });
     window.mp = new IDEE.plugin.Archetype({});
+    window.mapjs.addPlugin(window.mp);
   });
   
   const nPlugins = await page.evaluate(() => window.mapjs.getPlugins().length);

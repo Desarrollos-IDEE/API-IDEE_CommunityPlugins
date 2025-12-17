@@ -11,6 +11,7 @@ test('Test CatalogSearch', async ({ page }) => {
       collapsible: true,
       classname: 'm-catalogsearch',
     });
+    window.mapjs.addPlugin(window.mp);
   });
   
   const nPlugins = await page.evaluate(() => window.mapjs.getPlugins().length);
