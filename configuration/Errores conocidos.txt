@@ -1,0 +1,78 @@
+1. ERROR in ./node_modules/xml2js/lib/parser.js 17:17-47
+Module not found: Error: Can't resolve 'timers' in '/home/carmenmarquez/proyectos/UNIFICACION/SUBIDA/plugins/API-IDEE_CommunityPlugins/plugins/catalogsearch/node_modules/xml2js/lib'
+
+BREAKING CHANGE: webpack < 5 used to include polyfills for node.js core modules by default.
+This is no longer the case. Verify if you need this module and configure a polyfill for it.
+
+If you want to include a polyfill, you need to:
+	- add a fallback 'resolve.fallback: { "timers": require.resolve("timers-browserify") }'
+	- install 'timers-browserify'
+If you don't want to include a polyfill, you can use an empty module like this:
+	resolve.fallback: { "timers": false }
+ @ ./node_modules/xml2js/lib/xml2js.js 12:11-30
+ @ ./src/facade/js/catalogsearchcontrol.js 18:0-33 267:10-28 311:12-30
+ @ ./src/facade/js/catalogsearch.js 18:0-58 118:26-46
+ @ ./src/index-ol.js 1:0-170 3:32-54
+
+Motivo: al cambiar de versión de Webpack ya no incluye timers.
+
+Solución: 
+- Instalar timers-browserify: npm install --save-dev timers-browserify
+- Añadir en los ficheros Webpack dentro de fallback:
+timers: require.resolve('timers-browserify'),
+
+
+2. WARNING in ./node_modules/sax/lib/sax.js 193:13-37
+Module not found: Error: Can't resolve 'stream' in '/home/carmenmarquez/proyectos/UNIFICACION/SUBIDA/plugins/API-IDEE_CommunityPlugins/plugins/catalogsearch/node_modules/sax/lib'
+
+BREAKING CHANGE: webpack < 5 used to include polyfills for node.js core modules by default.
+This is no longer the case. Verify if you need this module and configure a polyfill for it.
+
+If you want to include a polyfill, you need to:
+	- add a fallback 'resolve.fallback: { "stream": require.resolve("stream-browserify") }'
+	- install 'stream-browserify'
+If you don't want to include a polyfill, you can use an empty module like this:
+	resolve.fallback: { "stream": false }
+ @ ./node_modules/xml2js/lib/parser.js 9:8-22
+ @ ./node_modules/xml2js/lib/xml2js.js 12:11-30
+ @ ./src/facade/js/catalogsearchcontrol.js 18:0-33 267:10-28 311:12-30
+ @ ./src/facade/js/catalogsearch.js 18:0-58 118:26-46
+ @ ./src/index-ol.js 1:0-170 3:32-54
+
+1 warning has detailed information that is not shown.
+Use 'stats.errorDetails: true' resp. '--stats-error-details' to show it.
+
+Motivo: al cambiar de versión de Webpack ya no incluye stream.
+
+Solución: se comprueba que no se usa, aunque depende de la librería sax que a su vez depende de xml2js que sí que se usa, por lo que se puede desactivar.
+Añadir en los ficheros Webpack dentro de fallback: stream: false,
+
+3. ERROR in ./node_modules/safe-buffer/index.js 2:13-30
+Module not found: Error: Can't resolve 'buffer' in '/home/carmenmarquez/proyectos/UNIFICACION/SUBIDA/plugins/API-IDEE_CommunityPlugins/plugins/catalogsearch/node_modules/safe-buffer'
+
+BREAKING CHANGE: webpack < 5 used to include polyfills for node.js core modules by default.
+This is no longer the case. Verify if you need this module and configure a polyfill for it.
+
+If you want to include a polyfill, you need to:
+	- add a fallback 'resolve.fallback: { "buffer": require.resolve("buffer/") }'
+	- install 'buffer'
+If you don't want to include a polyfill, you can use an empty module like this:
+	resolve.fallback: { "buffer": false }
+resolve 'buffer' in '/home/carmenmarquez/proyectos/UNIFICACION/SUBIDA/plugins/API-IDEE_CommunityPlugins/plugins/catalogsearch/node_modules/safe-buffer'
+  Parsed request is a module
+  using description file: /home/carmenmarquez/proyectos/UNIFICACION/SUBIDA/plugins/API-IDEE_CommunityPlugins/plugins/catalogsearch/node_modules/safe-buffer/package.json (relative path: .)
+    Field 'browser' doesn't contain a valid alias configuration
+    resolve as module
+
+Motivo: al cambiar de versión de Webpack ya no incluye stream.
+
+Solución: en el caso del plugin que se estaba tratando el módulo buffer es necesario porque timers-browserify depende de safe-buffer.
+- Instalar la librería: npm install --save-dev buffer
+- Añadir en los ficheros Webpack dentro de fallback:
+buffer: require.resolve('buffer/'),
+
+4. error  'M' is not defined  no-undef
+
+Motivo: ahora se llama IDEE.
+
+Solución: sustituir "M." por "IDEE." en todos los ficheros.

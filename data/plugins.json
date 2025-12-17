@@ -8,5 +8,15 @@
     "url_git": "https://github.com/Desarrollos-IDEE/API-IDEE_CommunityPlugins/tree/main/plugins/archetype",
     "description": "Plugin plantilla para crear otros plugins externos.",
     "obsolete": false
+  },
+  {
+    "name": "catalogsearch",
+    "plugin": "[catalogsearch]",
+    "version": "v1.0.0",
+    "url_es": "../gallery/catalogsearch/test.html?language=es",
+    "url_en": "../gallery/catalogsearch/test.html?language=en",
+    "url_git": "https://github.com/Desarrollos-IDEE/API-IDEE_CommunityPlugins/tree/main/plugins/catalogsearch",
+    "description": "Plugin para realizar búsquedas sobre un catálogo de metados implementado con Geonetwork",
+    "obsolete": false
   }
 ]

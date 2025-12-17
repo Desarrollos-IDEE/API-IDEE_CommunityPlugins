@@ -256,6 +256,7 @@ Puedes usar de base el de `resources/.eslintrc`.
 
 5. Añade la configuración de playwright:
 En la raíz del directorio del plugin copia la carpeta `playwright-config`.
+Y si en el package.json no existe la dependencia "@playwright/test" añádela de la siguiente forma: "@playwright/test": "1.50.1".
 
 6. Actualización de librerías en package.json:
 Es recomendable actualizar las librerías de tu plugin en fichero package.json principalmente las librerías comunes que se encuentran con el plugin archetype.

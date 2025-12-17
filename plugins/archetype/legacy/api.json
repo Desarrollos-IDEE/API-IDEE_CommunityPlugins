@@ -1,0 +1,53 @@
+{
+  "url": {
+    "name": "archetype",
+    "separator": "*"
+  },
+  "constructor": "IDEE.plugin.Archetype",
+  "parameters": [{
+    "type": "object",
+    "properties": [{
+      "type": "simple",
+      "name": "position",
+      "possibleValues": ["TL", "TR", "BL", "BR"],
+      "position": 0
+    }, {
+      "type": "boolean",
+      "name": "collapsed",
+      "position": 1
+    }, {
+      "type": "boolean",
+      "name": "collapsible",
+      "position": 2
+    }, {
+      "type": "simple",
+      "name": "tooltip",
+      "position": 3
+    }, {
+      "type": "boolean",
+      "name": "isDraggable",
+      "position": 4
+    }]
+  }],
+  "files": {
+    "ol": {
+      "scripts": ["archetype.ol.min.js"],
+      "styles": ["archetype.ol.min.css"]
+    },
+    "cesium": {
+      "scripts": ["archetype.cesium.min.js"],
+      "styles": ["archetype.cesium.min.css"]
+    }
+  },
+  "metadata": {
+    "name": "Archetype",
+    "description": "Plugin básico externo",
+    "text": "Plantilla de plugin básico externo",
+    "version": "1.0.0",
+    "date": "Diciembre 2025",
+    "author": "Community Plugins",
+    "org": "API-IDEE Community Plugins",
+    "tags": "cnig,plugin",
+    "icon": "./facade/assets/icons/icons.svg"
+  }
+}

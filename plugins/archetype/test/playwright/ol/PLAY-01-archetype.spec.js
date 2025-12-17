@@ -9,6 +9,6 @@ test('Test Archetype', async ({ page }) => {
     window.mp = new IDEE.plugin.Archetype({});
   });
   
-  const position = await page.evaluate(() => window.mp.position);
-  expect(position).toBe('TR');
+  const nPlugins = await page.evaluate(() => window.mapjs.getPlugins().length);
+  expect(nPlugins).toBe(1);
 });
