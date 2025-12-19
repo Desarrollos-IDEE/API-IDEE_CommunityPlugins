@@ -105,7 +105,7 @@ export default class Archetype extends IDEE.Plugin {
   }
 
   /**
-   * Devuelve el JSON del idioma del plugin
+   * Devuelve el JSON del idioma especificado del plugin
    *
    * @public
    * @function

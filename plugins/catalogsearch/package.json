@@ -1,7 +1,7 @@
 {
   "name": "CatalogSearch",
   "version": "1.0.0",
-  "description": "",
+  "description": "Realiza búsquedas sobre un catálogo de metados implementado con Geonetwork.",
   "keywords": [
     "map",
     "mapping",

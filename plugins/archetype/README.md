@@ -13,15 +13,10 @@ Para que el plugin funcione correctamente es necesario importar las siguientes d
 Para uso de implementación OpenLayers:
 - **archetype.ol.min.js**
 - **archetype.ol.min.css**
+
 Para uso de implementación Cesium:
 - **archetype.cesium.min.js**
 - **archetype.cesium.min.css**
-
-
-```html
-<link href="https://componentes.idee.es/api-idee-communityplugins/plugins/archetype/dist/archetype.ol.min.css" rel="stylesheet" />
-<script type="text/javascript" src="https://componentes.idee.es/api-idee-communityplugins/plugins/archetype/dist/archetype.ol.min.js"></script>
-```
 
 # Uso del histórico de versiones
 
@@ -29,10 +24,8 @@ Existe un histórico de versiones de todos los plugins en el directorio `legacy/
 Es recomendable fijar las versiones para evitar errores inesperados.
 
 Ejemplo con el plugin Archetype, implementación OpenLayers y versión 1.0.0:
-```html
-<link href="https://componentes.idee.es/api-idee-communityplugins/plugins/archetype/legacy/archetype-1.0.0.ol.min.css" rel="stylesheet" />
-<script type="text/javascript" src="https://componentes.idee.es/api-idee-communityplugins/plugins/archetype/legacy/archetype-1.0.0.ol.min.js"></script>
-```
+- archetype-1.0.0.ol.min.css
+- archetype-1.0.0.ol.min.js
 
 # Parámetros
 
@@ -46,7 +39,77 @@ El constructor se inicializa con un JSON con los siguientes atributos:
 - **collapsed**: Indica si el plugin viene colapsado de entrada (true/false). Por defecto: true.
 - **collapsible**: Indica si el plugin puede abrirse y cerrarse (true) o si permanece siempre abierto (false). Por defecto: true.
 - **tooltip**. Información emergente para mostrar en el tooltip del plugin (se muestra al dejar el ratón encima del plugin como información). Por defecto: 'Plantilla plugin'
-- **draggable**. Indica si el plugin puede arrastrarse.
+- **isDragable**. Indica si el plugin puede arrastrarse.
+
+# API-REST
+
+```javascript
+URL_API?archetype=position*collapsed*collapsible*tooltip*isDraggable
+```
+
+<table>
+    <tr>
+        <th>Parámetros</th>
+        <th>Opciones/Descripción</th>
+        <th>Disponibilidad</th>
+    </tr>
+    <tr>
+        <td>position</td>
+        <td>TR/TL/BR/BL</td>
+        <td>Base64 ✔️ | Separador ✔️</td>
+    </tr>
+     <tr>
+        <td>collapsed</td>
+        <td>true/false</td>
+        <td>Base64 ✔️ | Separador ✔️</td>
+    </tr>
+     <tr>
+        <td>collapsible</td>
+        <td>true/false</td>
+        <td>Base64 ✔️ | Separador ✔️</td>
+    </tr>
+    <tr>
+        <td>tooltip</td>
+        <td>Valor a usar para mostrar en el tooltip del plugin</td>
+        <td>Base64 ✔️ | Separador ✔️</td>
+    </tr>
+    <tr>
+        <td>isDraggable</td>
+        <td>true/false</td>
+        <td>Base64 ✔️ | Separador ✔️</td>
+    </tr>
+</table>
+
+### Ejemplos de uso API-REST
+```
+https://componentes.idee.es/api-idee?archetype=position*collapsed*collapsible*tooltip*isDraggable
+```
+
+```
+https://componentes.idee.es/api-idee?archetype=BR*true*true*miplugin*true
+```
+
+### Ejemplo de uso API-REST en base64
+
+Para la codificación en base64 del objeto con los parámetros del plugin podemos hacer uso de la utilidad IDEE.utils.encodeBase64.
+Ejemplo:
+```javascript
+IDEE.utils.encodeBase64(obj_params);
+```
+
+Ejemplo de constructor:
+```javascript
+{
+  position: 'TR',
+  collapsed: true,
+  collapsible: true,
+  tooltip: 'Plugin plantilla',
+  isDraggable: true,
+}
+```
+```
+https://componentes.idee.es/api-idee?archetype=base64=eyJwb3NpdGlvbiI6IlRSIiwiY29sbGFwc2VkIjp0cnVlLCJjb2xsYXBzaWJsZSI6dHJ1ZSwidG9vbHRpcCI6IlBsdWdpbiBwbGFudGlsbGEiLCJpc0RyYWdnYWJsZSI6dHJ1ZX0=
+```
 
 
 # Ejemplo de uso

@@ -39,6 +39,6 @@
     "tags": "idee,plugin",
     "icon": "./facade/assets/icons/icons.svg",
     "centralized": true,
-    "compatibility":["5","6"]
+    "compatibility": ["1"]
   }
 }
