@@ -61,7 +61,10 @@ export default class Findroute extends IDEE.Plugin {
       // Soporta tanto options.panel.position como options.position directamente
       const panelPosition = (this.options_.panel && this.options_.panel.position) || this.options_.position;
       this.panelPosition_ = (!IDEE.utils.isNullOrEmpty(panelPosition) ? panelPosition : IDEE.ui.position.TL);
-      this.conflictedPlugins_ = this.options_.conflictedPlugins || [];      
+      this.conflictedPlugins_ = this.options_.conflictedPlugins || [];
+      if (!IDEE.utils.isArray(this.conflictedPlugins_)) {
+        this.conflictedPlugins_ = this.conflictedPlugins_.split(',');
+      }
       this.urlGeocoderInverso = this.options_.urlGeocoderInverso;
     }else{
       this.osrmurl_ = undefined;
@@ -114,5 +117,27 @@ export default class Findroute extends IDEE.Plugin {
 
     this.panel_.addControls(this.controls_);
     map.addPanels(this.panel_);
+  }
+
+  /**
+   * Obtiene el nombre del plugin
+   *
+   * @getter
+   * @function
+   */
+  get name() {
+    return 'findroute';
+  }
+
+  /**
+   * Esta función destruye el plugin
+   *
+   * @public
+   * @function
+   * @api stable
+   */
+  destroy() {
+    this.map_.removeControls(this.controls_);
+    [this.map_, this.control_, this.controls_, this.panel_] = [null, null, null, null];
   }
 }

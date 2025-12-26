@@ -17,20 +17,23 @@
     }, {
       "type": "simple",
       "name": "position",
-      "possibleValues": [".m-bottom.m-left", ".m-bottom.m-right", ".m-top.m-left", ".m-top.m-right"],
       "position": 2
     }, {
       "type": "simple",
-      "name": "urlGeocoderInverso",
+      "name": "conflictedPlugins",
       "position": 3
     }, {
       "type": "simple",
-      "name": "searchstreetUrl",
+      "name": "urlGeocoderInverso",
       "position": 4
     }, {
       "type": "simple",
-      "name": "searchstreetNormalizar",
+      "name": "searchstreetUrl",
       "position": 5
+    }, {
+      "type": "simple",
+      "name": "searchstreetNormalizar",
+      "position": 6
     }]
   }],
   "files": {

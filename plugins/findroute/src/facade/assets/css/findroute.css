@@ -103,7 +103,7 @@ div.m-control.m-findroute-container button[class^=g-cartografia-menos]:hover {
 .m-findroute-container .tools-panel>button {
   right: 0;
   float: right;
-  background-color: #9bae0c !important;
+  background-color: white !important;
 }
 
 .m-findroute-container .tools-panel>button#limpiezaCompleta {
@@ -118,6 +118,7 @@ div.m-control.m-findroute-container button[class^=g-cartografia-menos]:hover {
   border-bottom-right-radius: 4px;
   color: rgb(255, 255, 255);
   margin-left: 0.5vh;
+  color: #364b5f !important;
 }
 
 /*********************
@@ -493,7 +494,7 @@ div.m-control.m-findroute-container button[class^=g-cartografia-menos]:hover {
   }
 
   .m-areas>div.m-area.m-right>div.m-panel.m-findroute>button.m-panel-btn {
-    right: 450px;
+    right: 634px;
   }
 }
 

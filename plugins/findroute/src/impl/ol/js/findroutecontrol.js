@@ -20,6 +20,8 @@ export default class FindrouteControl extends IDEE.impl.Control {
       this.url_osrm_nearest = osrmurl + '/nearest/v1/';
       this.url_osrm_route = osrmurl + '/route/v1/';
     }
+    // Guardamos referencia al callback con el contexto correcto
+    this.addPointBound_ = this.addPoint.bind(this);
   }
   /**
    * This function adds the control to the specified map
@@ -237,6 +239,10 @@ export default class FindrouteControl extends IDEE.impl.Control {
   }
 
   activateClick(map) {
+    // Aseguramos que facadeMap_ esté asignado
+    if (!this.facadeMap_) {
+      this.facadeMap_ = map;
+    }
     //Añado la capas del TOC
     if(IDEE.impl.Map.Z_INDEX[IDEE.layer.type.WFS] == 1){
         this.marcadorLayer.setZIndex(10501);
@@ -256,7 +262,7 @@ export default class FindrouteControl extends IDEE.impl.Control {
 
     //Evento click
     let olMap = map.getMapImpl();
-    olMap.on('click', this.addPoint, this);
+    olMap.on('click', this.addPointBound_);
   }
 
   /**
@@ -273,7 +279,7 @@ export default class FindrouteControl extends IDEE.impl.Control {
     this.dblClickInteraction.setActive(true);
 
     let olMap = this.facadeMap_.getMapImpl();
-    olMap.un('click', this.addPoint, this);
+    olMap.un('click', this.addPointBound_);
   }
 
   /**
@@ -388,7 +394,7 @@ export default class FindrouteControl extends IDEE.impl.Control {
       });
      
     // Se desactiva el botón de bandera tras click en mapa
-    this.facadeMap_.getMapImpl().un('click', this.addPoint, this);
+    this.facadeMap_.getMapImpl().un('click', this.addPointBound_);
     this.desactivaSinLimpiar();
     const bandera = document.getElementsByClassName('g-cartografia-bandera m-edit-btn activated')[0];
     if (bandera) {
