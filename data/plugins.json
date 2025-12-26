@@ -18,5 +18,15 @@
     "url_git": "https://github.com/Desarrollos-IDEE/API-IDEE_CommunityPlugins/tree/main/plugins/catalogsearch",
     "description": "Plugin para realizar búsquedas sobre un catálogo de metados implementado con Geonetwork",
     "obsolete": false
+  }, 
+  {
+    "name": "findroute",
+    "plugin": "[findroute]",
+    "version": "v1.0.0",
+    "url_es": "../gallery/findroute/test.html?language=es",
+    "url_en": "../gallery/findroute/test.html?language=en",
+    "url_git": "https://github.com/Desarrollos-IDEE/API-IDEE_CommunityPlugins/tree/main/plugins/findroute",
+    "description": "Plugin para realizar búsquedas de rutas OSRM",
+    "obsolete": false
   }
 ]

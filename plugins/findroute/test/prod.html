@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="mapea" content="yes">
+    <title>Findroute Production TEST</title>
+    <link href="https://componentes-desarrollo.idee.es/api-idee/assets/css/apiidee.ol.min.css" rel="stylesheet" />
+    <link href="../dist/findroute.ol.min.css" rel="stylesheet" />
+    <style rel="stylesheet">
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="mapjs" class="container"></div>
+    <script type="text/javascript" src="https://componentes-desarrollo.idee.es/api-idee/js/apiidee.ol.min.js"></script>
+    <script type="text/javascript" src="https://componentes-desarrollo.idee.es/api-idee/js/configuration.js"></script>
+    <script type="text/javascript" src="../dist/findroute.ol.min.js"></script>
+    <script type="text/javascript">
+        const map = IDEE.map({
+            container: 'mapjs',
+            controls:['scale','layerswitcher','mouse'],
+            layers: [new IDEE.layer.OSM()]
+        });
+        const mp = new IDEE.plugin.Findroute({
+            options: {
+            //osrmurl: "",
+            osrmurlAlternativa: "https://router.project-osrm.org",
+            panel: {
+            position: IDEE.ui.position.TL
+            },
+            conflictedPlugins: ["navigation", "tools", "panelSelectByPolygon"],    
+            urlGeocoderInverso: "http://ws248.juntadeandalucia.es/EXT_PUB_CallejeroREST/geocoderInversoSrs"
+                    }
+        });
+        map.addPlugin(mp);
+
+        map.on(IDEE.evt.COMPLETED, function() {
+            map.setMaxExtent([96388.1179, 3959795.9442, 621889.937, 4299792.107]);
+            map.setBbox([96388.1179, 3959795.9442, 621889.937, 4299792.107]);
+        });
+    </script>
+</body>
+
+</html>
