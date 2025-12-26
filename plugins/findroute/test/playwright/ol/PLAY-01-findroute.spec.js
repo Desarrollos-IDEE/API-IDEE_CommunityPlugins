@@ -6,7 +6,7 @@ test('Test Findroute', async ({ page }) => {
     window.mapjs = IDEE.map({
       container: 'mapjs',
     });
-    window.mp = new IDEE.plugin.Findroute(options: {
+    window.mp = new IDEE.plugin.Findroute({options: {
       // Especificar url de instancia de OSRM
       //osrmurl: "",
       osrmurlAlternativa: "https://router.project-osrm.org",
@@ -15,7 +15,7 @@ test('Test Findroute', async ({ page }) => {
       },
       conflictedPlugins: ["navigation", "tools", "panelSelectByPolygon"],    
       urlGeocoderInverso: "http://ws248.juntadeandalucia.es/EXT_PUB_CallejeroREST/geocoderInversoSrs"
-    });
+    }});
     window.mapjs.addPlugin(window.mp);
   });
   
