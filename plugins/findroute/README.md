@@ -70,7 +70,7 @@ URL_API?findroute=osrmurl*osrmurlAlternativa*position*conflictedPlugins*urlGeoco
     </tr>
     <tr>
         <td>position</td>
-        <td>TR/TL/BR/BL</td>
+        <td>.m-bottom.m-left",.m-bottom.m-right,.m-top.m-left,.m-top.m-right</td>
         <td>Base64 ✔️ | Separador ✔️</td>
     </tr>
          <tr>
@@ -101,7 +101,7 @@ https://componentes.idee.es/api-idee?findroute=osrmurl*osrmurlAlternativa*positi
 ```
 
 ```
-https://componentes.idee.es/api-idee?findroute=*https://router.project-osrm.org*TL*navigation,tools*http://ws248.juntadeandalucia.es/EXT_PUB_CallejeroREST/geocoderInversoSrs*https://ws248.juntadeandalucia.es/EXT_PUB_CallejeroREST/geocoderMunProvSrs*https://ws248.juntadeandalucia.es/EXT_PUB_CallejeroREST/normalizar
+https://componentes.idee.es/api-idee?findroute=*https://router.project-osrm.org*.m-bottom.m-left*navigation,tools*http://ws248.juntadeandalucia.es/EXT_PUB_CallejeroREST/geocoderInversoSrs*https://ws248.juntadeandalucia.es/EXT_PUB_CallejeroREST/geocoderMunProvSrs*https://ws248.juntadeandalucia.es/EXT_PUB_CallejeroREST/normalizar
 ```
 
 ### Ejemplo de uso API-REST en base64
@@ -120,7 +120,7 @@ Ejemplo de constructor:
     searchstreetNormalizar: 'https://ws248.juntadeandalucia.es/EXT_PUB_CallejeroREST/normalizar',
     osrmurlAlternativa: "https://router.project-osrm.org",
     panel: {
-      position: IDEE.ui.position.TL
+      position: '.m-bottom.m-left'
     },
     conflictedPlugins: ["navigation", "tools", "panelSelectByPolygon"],    
     urlGeocoderInverso: "http://ws248.juntadeandalucia.es/EXT_PUB_CallejeroREST/geocoderInversoSrs"
@@ -129,7 +129,7 @@ Ejemplo de constructor:
 ```
 
 ```
-https://componentes.idee.es/api-idee?findroute=base64=eyJvcHRpb25zIjp7InNlYXJjaHN0cmVldFVybCI6Imh0dHBzOi8vd3MyNDguanVudGFkZWFuZGFsdWNpYS5lcy9FWFRfUFVCX0NhbGxlamVyb1JFU1QvZ2VvY29kZXJNdW5Qcm92U3JzIiwic2VhcmNoc3RyZWV0Tm9ybWFsaXphciI6Imh0dHBzOi8vd3MyNDguanVudGFkZWFuZGFsdWNpYS5lcy9FWFRfUFVCX0NhbGxlamVyb1JFU1Qvbm9ybWFsaXphciIsIm9zcm11cmxBbHRlcm5hdGl2YSI6Imh0dHBzOi8vcm91dGVyLnByb2plY3Qtb3NybS5vcmciLCJwYW5lbCI6eyJwb3NpdGlvbiI6Ii5tLXRvcC5tLWxlZnQifSwiY29uZmxpY3RlZFBsdWdpbnMiOlsibmF2aWdhdGlvbiIsInRvb2xzIiwicGFuZWxTZWxlY3RCeVBvbHlnb24iXSwidXJsR2VvY29kZXJJbnZlcnNvIjoiaHR0cDovL3dzMjQ4Lmp1bnRhZGVhbmRhbHVjaWEuZXMvRVhUX1BVQl9DYWxsZWplcm9SRVNUL2dlb2NvZGVySW52ZXJzb1NycyJ9fQ==
+https://componentes.idee.es/api-idee?findroute=base64=eyJvcHRpb25zIjp7InNlYXJjaHN0cmVldFVybCI6Imh0dHBzOi8vd3MyNDguanVudGFkZWFuZGFsdWNpYS5lcy9FWFRfUFVCX0NhbGxlamVyb1JFU1QvZ2VvY29kZXJNdW5Qcm92U3JzIiwic2VhcmNoc3RyZWV0Tm9ybWFsaXphciI6Imh0dHBzOi8vd3MyNDguanVudGFkZWFuZGFsdWNpYS5lcy9FWFRfUFVCX0NhbGxlamVyb1JFU1Qvbm9ybWFsaXphciIsIm9zcm11cmxBbHRlcm5hdGl2YSI6Imh0dHBzOi8vcm91dGVyLnByb2plY3Qtb3NybS5vcmciLCJwYW5lbCI6eyJwb3NpdGlvbiI6Ii5tLWJvdHRvbS5tLWxlZnQifSwiY29uZmxpY3RlZFBsdWdpbnMiOlsibmF2aWdhdGlvbiIsInRvb2xzIiwicGFuZWxTZWxlY3RCeVBvbHlnb24iXSwidXJsR2VvY29kZXJJbnZlcnNvIjoiaHR0cDovL3dzMjQ4Lmp1bnRhZGVhbmRhbHVjaWEuZXMvRVhUX1BVQl9DYWxsZWplcm9SRVNUL2dlb2NvZGVySW52ZXJzb1NycyJ9fQ==
 ```
 
 ## Ejemplo de uso

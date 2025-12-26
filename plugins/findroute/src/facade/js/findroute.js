@@ -47,16 +47,20 @@ export default class Findroute extends IDEE.Plugin {
     this.control_ = null;     
 
     /**
-     * Service URL (OSRM)
+     * Plugin options
      *
      * @private
-     * @type {string}
+     * @type {Object}
      */
-    this.options_ = params.options || {};
+    // Compatibilidad: soporta tanto params.options.X como params.X directamente
+    this.options_ = IDEE.utils.isUndefined(params.options) ? (params || {}) : params.options;
+    
     if(!IDEE.utils.isUndefined(params)){
       this.osrmurl_ = (((!IDEE.utils.isNullOrEmpty(this.options_.osrmurl)) || (!IDEE.utils.isUndefined(this.options_.osrmurl))) ? this.options_.osrmurl : undefined);
       this.osrmurlAlternativa_ = this.options_.osrmurlAlternativa;
-      this.panelPosition_ = (((!IDEE.utils.isUndefined(this.options_.panel)) && ((!IDEE.utils.isNullOrEmpty(this.options_.panel.position)) || (!IDEE.utils.isUndefined(this.options_.panel.position)))) ? this.options_.panel.position : IDEE.ui.position.TL);
+      // Soporta tanto options.panel.position como options.position directamente
+      const panelPosition = (this.options_.panel && this.options_.panel.position) || this.options_.position;
+      this.panelPosition_ = (!IDEE.utils.isNullOrEmpty(panelPosition) ? panelPosition : IDEE.ui.position.TL);
       this.conflictedPlugins_ = this.options_.conflictedPlugins || [];      
       this.urlGeocoderInverso = this.options_.urlGeocoderInverso;
     }else{
