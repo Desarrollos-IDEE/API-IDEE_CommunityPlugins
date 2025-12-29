@@ -27,23 +27,24 @@
     <div>
         <label for="selectPosicion">Selector de posición del plugin</label> 
         <select name="position" id="selectPosicion">
-        <option value=".m-top.m-right">Arriba Izquierda (TL)</option>
-        <option value=".m-top.m-left" selected="selected">Arriba Derecha (TR)</option>
-        <option value=".m-bottom.m-right">Abajo Derecha (BR)</option>
-        <option value=".m-bottom.m-left">Abajo Izquierda (BL)</option>
+            <option value=".m-top.m-left" selected="selected">Arriba Izquierda (TL)</option>
+            <option value=".m-top.m-right">Arriba Derecha (TR)</option>
+            <option value=".m-bottom.m-right">Abajo Derecha (BR)</option>
+            <option value=".m-bottom.m-left">Abajo Izquierda (BL)</option>
         </select> 
 		<label for="inputOsrmurl">Parámetro osrmurl</label>
         <input type="text" name="osrmurl" id="inputOsrmurl" list="osrmurlSug" value="">
         <datalist id="osrmurlSug">
             <option value=""></option>
         </datalist>
-        <input type="text" name="osrmurlAlternativa" id="inputOsrmurlAlternativa" list="osrmurlAlternativaSug" value="">
+        <label for="inputOsrmurl">Parámetro osrmurlAlternativa</label>
+        <input type="text" name="osrmurlAlternativa" id="inputOsrmurlAlternativa" list="osrmurlAlternativaSug" value="https://router.project-osrm.org">
         <datalist id="osrmurlAlternativaSug">
             <option value="https://router.project-osrm.org"></option>
         </datalist>
-        <input type="text" name="conflictedPlugins" id="inputConflictedPlugins" list="conflictedPluginsSug" value="navigation, tools, panelSelectByPolygon">
+        <input type="text" name="conflictedPlugins" id="inputConflictedPlugins" list="conflictedPluginsSug" value="navigation,tools,panelSelectByPolygon">
         <datalist id="conflictedPluginsSug">
-            <option value="navigation, tools, panelSelectByPolygon"></option>
+            <option value="navigation,tools,panelSelectByPolygon"></option>
         </datalist>
         <label for="inputUrlGeocoderInverso">Parámetro urlGeocoderInverso</label>
         <input type="text" name="urlGeocoderInverso" id="inputUrlGeocoderInverso" list="urlGeocoderInversoSug" value="http://ws248.juntadeandalucia.es/EXT_PUB_CallejeroREST/geocoderInversoSrs">
@@ -79,6 +80,8 @@
 
         const map = IDEE.map({
             container: 'mapjs',
+            projection: 'EPSG:25830',
+            layers: [new IDEE.layer.OSM()]
         });
 
         // VARIABLES PARA ALMACENAR EL PLUGIN Y LAS PROPIEDADES
@@ -104,14 +107,14 @@
         function cambiarTest() {
             let objeto = {}
             objeto.panel = { position: selectPanel.options[selectPanel.selectedIndex].value };
-            objeto.osrmurl = inputOsrmurl.value != "" ? objeto.osrmurl = inputOsrmurl.value : "";
-            objeto.osrmurlAlternativa = inputOsrmurlAlternativa.value != "" ? objeto.osrmurlAlternativa = inputOsrmurlAlternativa.value : "";
-            objeto.conflictedPlugins = inputConflictedPlugins.value != "" ? objeto.conflictedPlugins = inputConflictedPlugins.value : "";
-            objeto.urlGeocoderInverso = inputUrlGeocoderInverso.value != "" ? objeto.urlGeocoderInverso = inputUrlGeocoderInverso.value : "";
-            objeto.searchstreetUrl = inputSearchstreetUrl.value != "" ? objeto.searchstreetUrl = inputSearchstreetUrl.value : "";
-            objeto.searchstreetNormalizar = inputSearchstreetNormalizar.value != "" ? objeto.searchstreetNormalizar = inputSearchstreetNormalizar.value : "";
+            if (inputOsrmurl.value !== "") objeto.osrmurl = inputOsrmurl.value;
+            if (inputOsrmurlAlternativa.value !== "") objeto.osrmurlAlternativa = inputOsrmurlAlternativa.value;
+            if (inputConflictedPlugins.value !== "") objeto.conflictedPlugins = inputConflictedPlugins.value.split(",");
+            if (inputUrlGeocoderInverso.value !== "") objeto.urlGeocoderInverso = inputUrlGeocoderInverso.value;
+            if (inputSearchstreetUrl.value !== "") objeto.searchstreetUrl = inputSearchstreetUrl.value;
+            if (inputSearchstreetNormalizar.value !== "") objeto.searchstreetNormalizar = inputSearchstreetNormalizar.value;
             if (myPlugin) map.removePlugins(myPlugin);
-            crearPlugin(objeto);
+            crearPlugin({options: objeto});
         }
 
         function crearPlugin(propiedades) {
