@@ -76,3 +76,25 @@ buffer: require.resolve('buffer/'),
 Motivo: ahora se llama IDEE.
 
 Solución: sustituir "M." por "IDEE." en todos los ficheros.
+
+5. Map.js:3827 TypeError: Cannot read properties of undefined (reading 'on')
+    at Panel.js:416:17
+    
+Motivo: en API-IDEE no se permite añadir controles nulos a paneles.
+Ejemplo: 
+this.panel_.addControls([control, undefined]);
+
+Solución: no añadir controles indefinidos, nulos...
+
+6. Problemas con visualización de plugins que no dispone de panel como tal, es sólo el círculo pero se muestra cuadrado.
+
+Motivo: problemas con el CSS.
+
+Solución: añadir al botón la regla
+border-radius: 20px;
+
+7. El plugin no se añade por API-REST y no da error.
+
+Motivo: el fichero api.json no está configurado correctamente.
+
+Solución: en el atributo name se debe especificar el nombre en minúsculas completo.

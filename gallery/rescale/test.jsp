@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-ComyPluginatible" content="IE=edge" />
+    <meta name="idee" content="yes">
+    <title>Rescalle</title>
+    <script type="text/javascript" src="../../configuration/config.js"></script>
+    <script type="text/javascript">
+        document.write(`<link href="${IDEE_DOMAIN}/assets/css/apiidee.ol.min.css" rel="stylesheet" />`);
+    </script>
+    <link href="../../plugins/rescale/dist/rescale.ol.min.css" rel="stylesheet" />
+    <style rel="stylesheet">
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label for="selectPosicion">Selector de posición del plugin</label>
+        <select name="position" id="selectPosicion">
+            <option value="TL">Arriba Izquierda (TL)</option>
+            <option value="TR" selected="selected">Arriba Derecha (TR)</option>
+            <option value="BR">Abajo Derecha (BR)</option>
+            <option value="BL">Abajo Izquierda (BL)</option>
+        </select>
+        <label for="selectCollapsed">Selector collapsed</label>
+        <select name="collapsedValue" id="selectCollapsed">
+            <option value=true>true</option>
+            <option value=false>false</option>
+        </select>
+        <label for="selectCollapsible">Selector collapsible</label>
+        <select name="collapsibleValue" id="selectCollapsible">
+            <option value=true>true</option>
+            <option value=false>false</option>
+        </select>
+        <label for="inputTooltip">Parámetro tooltip</label>
+        <input type="text" id="inputTooltip" value="Cambiar escala" />
+        <input type="button" value="Eliminar Plugin" name="eliminar" id="botonEliminar">
+    </div>
+    <div id="mapjs" class="container"></div>
+    <script type="text/javascript">
+        document.write(`<script src="${IDEE_DOMAIN}/vendor/browser-polyfill.js"><\/script>`);
+        document.write(`<script src="${IDEE_DOMAIN}/js/apiidee.ol.min.js"><\/script>`);
+        document.write(`<script src="${IDEE_DOMAIN}/js/configuration.js"><\/script>`);
+    </script>
+    <script type="text/javascript" src="../../plugins/rescale/dist/rescale.ol.min.js"></script>
+
+    <script type="text/javascript">
+        const urlParams = new URLSearchParams(window.location.search);
+        IDEE.language.setLang(urlParams.get('language') || 'es');
+
+        const map = IDEE.map({
+            container: 'mapjs',
+            zoom: 5,
+            maxZoom: 20,
+            minZoom: 4,
+            center: [-467062.8225, 4683459.6216],
+        });
+
+        const layerinicial = new IDEE.layer.WMS({
+            url: 'https://www.ign.es/wms-inspire/unidades-administrativas?',
+            name: 'AU.AdministrativeBoundary',
+            legend: 'Limite administrativo',
+            tiled: false,
+        }, {});
+
+        const layerUA = new IDEE.layer.WMS({
+            url: 'https://www.ign.es/wms-inspire/unidades-administrativas?',
+            name: 'AU.AdministrativeUnit',
+            legend: 'Unidad administrativa',
+            tiled: false
+        }, {});
+
+        map.addLayers([layerinicial, layerUA]);
+
+        let mp;
+        let collapsed, posicion, collapsible;
+        crearPlugin(collapsed, posicion, collapsible);
+
+        const selectPosicion = document.getElementById("selectPosicion");
+        const selectCollapsed = document.getElementById("selectCollapsed");
+        const selectCollapsible = document.getElementById("selectCollapsible");
+        const inputTooltip = document.getElementById("inputTooltip");
+
+        selectPosicion.addEventListener('change', cambiarTest);
+        selectCollapsed.addEventListener('change', cambiarTest);
+        selectCollapsible.addEventListener('change', cambiarTest);
+        inputTooltip.addEventListener('change', cambiarTest);
+
+        function cambiarTest() {
+            posicion = selectPosicion.options[selectPosicion.selectedIndex].value;
+            collapsed = (selectCollapsed.options[selectCollapsed.selectedIndex].value == 'true');
+            collapsible = (selectCollapsible.options[selectCollapsible.selectedIndex].value == 'true');
+            tooltip = inputTooltip.value;
+            map.removePlugins(mp);
+            crearPlugin(posicion, collapsed, collapsible, tooltip);
+        }
+
+        function crearPlugin(position, collapsed, collapsible, tooltip) {
+            mp = new IDEE.plugin.Rescale({
+            	position: position,
+                collapsed: collapsed,
+                collapsible: collapsible,
+                tooltip: tooltip,
+            });
+
+            map.addPlugin(mp);
+        }
+
+        let mp2 = new IDEE.plugin.ShareMap({
+            baseUrl: window.location.href.substring(0, window.location.href.indexOf('api-idee')) + "api-idee/",
+            position: "TR",
+        });
+        map.addPlugin(mp2);
+        
+        const botonEliminar = document.getElementById("botonEliminar");
+        botonEliminar.addEventListener("click", function() {
+            map.removePlugins(mp);
+        });
+    </script>
+</body>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script type="text/javascript">
+	document.write(`<script async src="https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}"><\/script>`);
+</script>
+
+<script type="text/javascript"
+	src="../../configuration/google_analytics_content.js"></script>
+
+</html>

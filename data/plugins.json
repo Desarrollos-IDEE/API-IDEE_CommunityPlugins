@@ -18,7 +18,7 @@
     "url_git": "https://github.com/Desarrollos-IDEE/API-IDEE_CommunityPlugins/tree/main/plugins/catalogsearch",
     "description": "Plugin para realizar búsquedas sobre un catálogo de metados implementado con Geonetwork",
     "obsolete": false
-  }, 
+  },
   {
     "name": "findroute",
     "plugin": "[findroute]",
@@ -27,6 +27,26 @@
     "url_en": "../gallery/findroute/test.html?language=en",
     "url_git": "https://github.com/Desarrollos-IDEE/API-IDEE_CommunityPlugins/tree/main/plugins/findroute",
     "description": "Plugin para realizar búsquedas de rutas OSRM",
+    "obsolete": false
+  },
+  {
+    "name": "rescale",
+    "plugin": "[rescale]",
+    "version": "v1.0.0",
+    "url_es": "../gallery/rescale/test.html?language=es",
+    "url_en": "../gallery/rescale/test.html?language=en",
+    "url_git": "https://github.com/Desarrollos-IDEE/API-IDEE_CommunityPlugins/tree/main/plugins/rescale",
+    "description": "Hace zoom a la escala elegida.",
+    "obsolete": false
+  },
+  {
+    "name": "viewmanagement",
+    "plugin": "[viewmanagement]",
+    "version": "v1.0.0",
+    "url_es": "../gallery/viewmanagement/test.html?language=es",
+    "url_en": "../gallery/viewmanagement/test.html?language=en",
+    "url_git": "https://github.com/Desarrollos-IDEE/API-IDEE_CommunityPlugins/tree/main/plugins/viewmanagement",
+    "description": "Plugin que permite utilizar diferentes herramientas de zoom.",
     "obsolete": false
   }
 ]
