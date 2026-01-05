@@ -6,10 +6,20 @@
   "constructor": "IDEE.plugin.CatalogSearch",
   "parameters": [{
     "type": "object",
-    "properties": [{
+    "properties": [
+      {
+        "type": "simple",
+        "name": "collapsible",
+        "position": 0
+      },
+      {
       "type": "simple",
       "name": "geoNetworkUrl",
-      "position": 3
+      "position": 1
+    },{
+      "type": "simple",
+      "name": "classname",
+      "position": 2 
     }]
   }],
   "files": {
@@ -20,15 +30,15 @@
   },
   "metadata": {
     "name": "CatalogSearch",
-    "description": "Realiza búsquedas sobre un catálogo ",
+    "description": "Realiza búsquedas sobre un catálogo",
     "text": "Realiza búsquedas sobre un catálogo de metadatos implementado con Geonetwork.",
-    "version": "1.1.2",
-    "date": "Abril, 2023",
+    "version": "1.0.0",
+    "date": "Diciembre, 2025",
     "author": "",
     "org": "Instituto de Estadística y Cartografía. Junta de Andalucía",
-    "tags": "mapea,plugin",
+    "tags": "idee,plugin",
     "icon": "./facade/assets/icons/icons.svg",
     "centralized": true,
-    "compatibility":["5","6"]
+    "compatibility": ["1"]
   }
 }

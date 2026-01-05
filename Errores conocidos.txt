@@ -98,3 +98,10 @@ border-radius: 20px;
 Motivo: el fichero api.json no está configurado correctamente.
 
 Solución: en el atributo name se debe especificar el nombre en minúsculas completo.
+
+8. Se genera en dist el versionado de el fichero LICENSE
+
+Motivo: xml2js que se incluye/empaqueta en el bundle final.
+
+Solución: añadir a los ficheros webpack production dentro de TerserPLugin:
+extractComments: false

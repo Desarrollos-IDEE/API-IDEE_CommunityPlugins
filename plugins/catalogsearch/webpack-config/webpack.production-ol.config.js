@@ -72,6 +72,7 @@ module.exports = {
     minimizer: [
       new OptimizeCssAssetsPlugin(),
       new TerserPlugin({
+        extractComments: false,
         terserOptions: {
           sourceMap: true,
         },
