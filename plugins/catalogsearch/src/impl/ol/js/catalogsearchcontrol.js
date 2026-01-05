@@ -17,6 +17,7 @@ export default class CatalogSearchControl extends IDEE.impl.Control {
      */
     this.facadeMap_ = null;
   }
+
   /**
    * This function adds the control to the specified map
    *
@@ -75,7 +76,7 @@ export default class CatalogSearchControl extends IDEE.impl.Control {
           console.log(error);
           fail(error);
         }
-      }).catch(err => fail(err));
+      }).catch((err) => fail(err));
     });
   }
 }

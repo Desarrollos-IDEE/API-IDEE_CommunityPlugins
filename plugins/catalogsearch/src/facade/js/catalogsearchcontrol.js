@@ -28,6 +28,7 @@ export default class CatalogSearchControl extends IDEE.Control {
   static get TEMPLATE() {
     return 'catalogsearch.html';
   }
+
   /**
    * Template for this controls
    * @const
@@ -163,10 +164,10 @@ export default class CatalogSearchControl extends IDEE.Control {
     this.facadeMap_ = null;
 
     // FUNCIONES a eventos para poder eliminarlos después
-    this.boundResultsScroll_ = evt => this.resultsScroll_(evt);
-    this.boundShowLayersButton_ = evt => this.searchLayers(evt);
-    this.boundAddLayersButton_ = evt => this.addLayersControl(evt);
-    this.boundShowMetadataButton_ = evt => this.showFullMetadata(evt);
+    this.boundResultsScroll_ = (evt) => this.resultsScroll_(evt);
+    this.boundShowLayersButton_ = (evt) => this.searchLayers(evt);
+    this.boundAddLayersButton_ = (evt) => this.addLayersControl(evt);
+    this.boundShowMetadataButton_ = (evt) => this.showFullMetadata(evt);
   }
 
   /**
@@ -204,15 +205,15 @@ export default class CatalogSearchControl extends IDEE.Control {
 
     // input search
     this.input_ = this.element_.getElementsByTagName('input')['m-catalogsearch-search-input'];
-    this.input_.addEventListener('keyup', evt => this.searchClick_(evt));
+    this.input_.addEventListener('keyup', (evt) => this.searchClick_(evt));
 
     // search buntton
     const btnSearch = this.element_.getElementsByTagName('button')['m-catalogsearch-search-btn'];
-    btnSearch.addEventListener('click', evt => this.searchClick_(evt));
+    btnSearch.addEventListener('click', (evt) => this.searchClick_(evt));
 
     // clear buntton
     const btnClean = this.element_.getElementsByTagName('button')['m-catalogsearch-clear-btn'];
-    btnClean.addEventListener('click', evt => this.clearClick_(evt));
+    btnClean.addEventListener('click', (evt) => this.clearClick_(evt));
 
     // results container
     this.resultsContainer_ = this.element_.querySelector('div#m-catalogsearch-results');
@@ -261,7 +262,6 @@ export default class CatalogSearchControl extends IDEE.Control {
 
     this.searchAny(query, this.searchTime_, append);
   }
-
 
   searchAny(query, searchTime, append) {
     const searchUrl = IDEE.utils.addParameters(`${this.geoNetworkUrl_}/xml.search`, {
@@ -327,15 +327,22 @@ export default class CatalogSearchControl extends IDEE.Control {
             // y la url del getcapabilities para posteriormente cargar las capas a través de él.
             const metadata = {};
             metadata.url = searchUrl;
-            metadata.title = this.checkNestedJSON_(result, 'gmd:MD_Metadata', 'gmd:identificationInfo', 'gmd:MD_DataIdentification', 'gmd:citation', 'gmd:CI_Citation', 'gmd:title', 'gco:CharacterString') ||
-              this.checkNestedJSON_(result, 'gmd:MD_Metadata', 'gmd:identificationInfo', 'srv:SV_ServiceIdentification', 'gmd:citation', 'gmd:CI_Citation', 'gmd:title', 'gco:CharacterString');
-            metadata.abstract = this.checkNestedJSON_(result, 'gmd:MD_Metadata', 'gmd:identificationInfo', 'gmd:MD_DataIdentification', 'gmd:abstract', 'gco:CharacterString') ||
-              this.checkNestedJSON_(result, 'gmd:MD_Metadata', 'gmd:identificationInfo', 'srv:SV_ServiceIdentification', 'gmd:abstract', 'gco:CharacterString');
+            metadata.title = this.checkNestedJSON_(result, 'gmd:MD_Metadata', 'gmd:identificationInfo', 'gmd:MD_DataIdentification', 'gmd:citation', 'gmd:CI_Citation', 'gmd:title', 'gco:CharacterString')
+              || this.checkNestedJSON_(result, 'gmd:MD_Metadata', 'gmd:identificationInfo', 'srv:SV_ServiceIdentification', 'gmd:citation', 'gmd:CI_Citation', 'gmd:title', 'gco:CharacterString');
+            metadata.abstract = this.checkNestedJSON_(result, 'gmd:MD_Metadata', 'gmd:identificationInfo', 'gmd:MD_DataIdentification', 'gmd:abstract', 'gco:CharacterString')
+              || this.checkNestedJSON_(result, 'gmd:MD_Metadata', 'gmd:identificationInfo', 'srv:SV_ServiceIdentification', 'gmd:abstract', 'gco:CharacterString');
             metadata.type = this.checkNestedJSON_(result, 'gmd:MD_Metadata', 'gmd:hierarchyLevel', 'gmd:MD_ScopeCode', '$', 'codeListValue');
             if (metadata.type === 'dataset' || metadata.type === 'series') {
               const metadataWMSUrl = this.checkNestedJSON_(
-                result, 'gmd:MD_Metadata', 'gmd:distributionInfo', 'gmd:MD_Distribution', 'gmd:distributor',
-                'gmd:MD_Distributor', 'gmd:distributorTransferOptions', 'gmd:MD_DigitalTransferOptions', 'gmd:onLine'
+                result,
+                'gmd:MD_Metadata',
+                'gmd:distributionInfo',
+                'gmd:MD_Distribution',
+                'gmd:distributor',
+                'gmd:MD_Distributor',
+                'gmd:distributorTransferOptions',
+                'gmd:MD_DigitalTransferOptions',
+                'gmd:onLine',
               );
               if (Array.isArray(metadataWMSUrl)) {
                 for (let j = 0; j < (metadataWMSUrl.length - 1); j += 1) {
@@ -353,8 +360,11 @@ export default class CatalogSearchControl extends IDEE.Control {
               }
             } else if (metadata.type === 'service') {
               const metadataWMSUrl = this.checkNestedJSON_(
-                result, 'gmd:MD_Metadata', 'gmd:identificationInfo', 'srv:SV_ServiceIdentification',
-                'srv:containsOperations'
+                result,
+                'gmd:MD_Metadata',
+                'gmd:identificationInfo',
+                'srv:SV_ServiceIdentification',
+                'srv:containsOperations',
               );
               if (Array.isArray(metadataWMSUrl)) {
                 for (let j = 0; j < (metadataWMSUrl.length - 1); j += 1) {
@@ -399,8 +409,8 @@ export default class CatalogSearchControl extends IDEE.Control {
     if (IDEE.utils.isNullOrEmpty(layersContainer.innerHTML)) {
       this.getImpl().getLayersFromWMSCapabilities(url).then((capabilities) => {
         this.element_.classList.remove(CatalogSearchControl.SEARCHING_CLASS);
-        if (!IDEE.utils.isNullOrEmpty(capabilities) &&
-          !IDEE.utils.isNullOrEmpty(capabilities.Capability.Layer)) {
+        if (!IDEE.utils.isNullOrEmpty(capabilities)
+          && !IDEE.utils.isNullOrEmpty(capabilities.Capability.Layer)) {
           this.showLayers_(url, capabilities.Capability.Layer, layersContainer);
         } else {
           IDEE.dialog.error('No se han podido cargar las capas');
@@ -519,7 +529,7 @@ export default class CatalogSearchControl extends IDEE.Control {
     // results button
     let btnResults = this.resultsContainer_.querySelector('div.page > div.g-cartografia-flecha-arriba');
     if (!IDEE.utils.isNullOrEmpty(btnResults)) {
-      btnResults.removeEventListener('click', evt => this.resultsClick_(evt));
+      btnResults.removeEventListener('click', (evt) => this.resultsClick_(evt));
     }
     // gets the new results scroll
     this.resultsContainer_.innerHTML = html.innerHTML;
@@ -554,7 +564,7 @@ export default class CatalogSearchControl extends IDEE.Control {
 
     // results button
     btnResults = this.resultsContainer_.querySelector('div.page > div.g-cartografia-flecha-arriba');
-    btnResults.addEventListener('click', evt => this.resultsClick_(evt));
+    btnResults.addEventListener('click', (evt) => this.resultsClick_(evt));
 
     this.checkScrollSearch_();
 
@@ -718,8 +728,8 @@ export default class CatalogSearchControl extends IDEE.Control {
    * @function
    */
   checkScrollSearch_() {
-    if ((this.results_.services.length === Number(this.results_.total)) &&
-      (!IDEE.utils.isNullOrEmpty(this.resultsScrollContainer_))) {
+    if ((this.results_.services.length === Number(this.results_.total))
+      && (!IDEE.utils.isNullOrEmpty(this.resultsScrollContainer_))) {
       this.resultsScrollContainer_.removeEventListener('scroll', this.boundResultsScroll_);
     }
   }
