@@ -8,6 +8,7 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 
 const PJSON_PATH = path.resolve(__dirname, '..', 'package.json');
 const pjson = require(PJSON_PATH);
+const webpack = require('webpack');
 
 module.exports = {
   mode: 'production',
@@ -68,10 +69,11 @@ module.exports = {
     emitOnErrors: false,
     minimizer: [
       new OptimizeCssAssetsPlugin({
-          parallel: 1,
+        parallel: 1,
       }),
       new TerserPlugin({
         parallel: 1,
+        extractComments: false,
         terserOptions: {
           sourceMap: true,
         },
@@ -83,6 +85,9 @@ module.exports = {
     //   version: pjson.version,
     //   regex: /([A-Za-z]+)(\..*)/,
     // }),
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),

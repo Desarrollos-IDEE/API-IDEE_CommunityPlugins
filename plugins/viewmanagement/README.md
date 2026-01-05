@@ -16,12 +16,12 @@ Plugin que permite utilizar diferentes herramientas de zoom.
 Para que el plugin funcione correctamente es necesario importar las siguientes dependencias en el documento html:
 
 Para uso de implementación OpenLayers:
-- viewmanagement.ol.min.js
-- viewmanagement.ol.min.css
+- **viewmanagement.ol.min.js**
+- **viewmanagement.ol.min.css**
 
 Para uso de implementación Cesium:
-- viewmanagement.cesium.min.js
-- viewmanagement.cesium.min.css
+- **viewmanagement.cesium.min.js**
+- **viewmanagement.cesium.min.css**
 
 # Uso del histórico de versiones
 
@@ -122,11 +122,11 @@ URL_API?viewmanagement=position*collapsed*collapsible*tooltip*isDraggable*predef
 ### Ejemplos de uso API-REST
 
 ```
-https://componentes.idee.es/api-idee/?viewmanagement=TL*true*true*tooltip
+https://componentes.idee.es/api-idee/?viewmanagement=position*collapsed*collapsible*tooltip*isDraggable*predefinedZoom*zoomExtent*viewhistory*zoompanel
 ```
 
 ```
-https://componentes.idee.es/api-idee/?viewmanagement=TL*true*true*tooltip*true*false*true*true*false
+https://componentes.idee.es/api-idee/?viewmanagement=TR*false*false*herramienta%20zooms*true*true*true*true*true
 ```
 
 ### Ejemplos de uso API-REST en base64

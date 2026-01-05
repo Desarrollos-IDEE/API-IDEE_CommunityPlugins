@@ -8,7 +8,7 @@
     "type": "object",
     "properties": [
       {
-        "type": "simple",
+        "type": "boolean",
         "name": "collapsible",
         "position": 0
       },
@@ -26,6 +26,10 @@
     "ol": {
       "scripts": ["catalogsearch.ol.min.js"],
       "styles": ["catalogsearch.ol.min.css"]
+    }, 
+    "cesium": {
+      "scripts": ["catalogsearch.cesium.min.js"],
+      "styles": ["catalogsearch.cesium.min.css"]
     }
   },
   "metadata": {
@@ -35,7 +39,7 @@
     "version": "1.0.0",
     "date": "Diciembre, 2025",
     "author": "",
-    "org": "Instituto de Estadística y Cartografía. Junta de Andalucía",
+    "org": "",
     "tags": "idee,plugin",
     "icon": "./facade/assets/icons/icons.svg",
     "centralized": true,
