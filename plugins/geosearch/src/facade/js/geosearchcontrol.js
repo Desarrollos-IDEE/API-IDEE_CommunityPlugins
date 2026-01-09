@@ -642,8 +642,8 @@ export default class GeosearchControl extends IDEE.Control {
     } else {
       this.results_ = docs;
     }
-    const spatialDocs = results.spatial_response.docs;
-    const partial = (this.spatialSearch_ && IDEE.utils.isNullOrEmpty(spatialDocs));
+    const partial = (this.spatialSearch_
+      && IDEE.utils.isNullOrEmpty(results.spatial_response.docs));
     let resultsTemplateVar = null;
     if (total !== 0) {
       resultsTemplateVar = {

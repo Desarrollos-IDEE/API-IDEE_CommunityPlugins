@@ -112,7 +112,7 @@ export default class GeosearchControl extends IDEE.impl.Control {
    * @api stable
    */
   zoomToResults() {
-    const bbox = ol.extent.boundingExtent(this.layer_.getImpl().getOLLayer()
+    const bbox = ol.extent.boundingExtent(this.layer_.getImpl().getLayer()
       .getSource().getFeatures()
       .map((feature) => {
         return ol.extent.getCenter(feature.getGeometry().getExtent());

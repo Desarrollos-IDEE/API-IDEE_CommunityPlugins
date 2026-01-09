@@ -5,21 +5,21 @@ export default class GeoSearchStyle {
 
       // create default image
       const imgIconDefault = document.createElement('img');
-      imgIconDefault.src = IDEE.utils.concatUrlPaths([IDEE.config.THEME_URL, '/img/m-pin-24.svg']);
+      imgIconDefault.src = `${IDEE.config.STATIC_RESOURCES_URL}/Simbologia/svg/marcadores/m-pin-24.svg`;
       imgIconDefault.width = '24';
       imgIconDefault.height = '24';
       imgIconDefault.crossOrigin = 'anonymous';
 
       // create new image
       const imgIconNew = document.createElement('IMG');
-      imgIconNew.src = IDEE.utils.concatUrlPaths([IDEE.config.THEME_URL, '/img/m-pin-24-new.svg']);
+      imgIconNew.src = `${IDEE.config.STATIC_RESOURCES_URL}/Simbologia/svg/marcadores/m-pin-24-new.svg`;
       imgIconNew.width = '24';
       imgIconNew.height = '24';
       imgIconNew.crossOrigin = 'anonymous';
 
       // create selected image
       const imgIconSelected = document.createElement('IMG');
-      imgIconSelected.src = IDEE.utils.concatUrlPaths([IDEE.config.THEME_URL, '/img/m-pin-24-sel.svg']);
+      imgIconSelected.src = `${IDEE.config.STATIC_RESOURCES_URL}/Simbologia/svg/marcadores/m-pin-24-sel.svg`;
       imgIconSelected.width = '24';
       imgIconSelected.height = '24';
       imgIconSelected.crossOrigin = 'anonymous';
