@@ -1,0 +1,57 @@
+{
+  "url": {
+    "name": "geosearch",
+    "separator": "*"
+  },
+  "constructor": "IDEE.plugin.Geosearch",
+  "parameters": [{
+    "type": "object",
+    "properties": [{
+      "type": "simple",
+      "name": "url",
+      "position": 0
+    }, {
+      "type": "simple",
+      "name": "core",
+      "position": 1
+    }, {
+      "type": "simple",
+      "name": "handler",
+      "position": 2
+    }]
+  }],
+  "files": {
+    "ol": {
+      "scripts": ["geosearch.ol.min.js"],
+      "styles": ["geosearch.ol.min.css"]
+    },
+    "cesium": {
+      "scripts": ["geosearch.cesium.min.js"],
+      "styles": ["geosearch.cesium.min.css"]
+    }
+  },
+  "metadata": {
+    "uuid_plugin": "",
+    "uuid_version_plugin": "",
+    "version_ficha_metadatos": "",
+    "name": "Geosearch",
+    "description": "",
+    "text": "",
+    "version": "1.0.0",
+    "date": "09/01/2026",
+    "author": "Junta de Andalucía",
+    "org": "Junta de Andalucía",
+    "tags": "idee,plugin",
+    "icon": "./facade/assets/icons/icons.svg",
+    "buttons": [
+      { "title": "", "description": "", "querySelector": "" },
+      { "title": "", "description": "", "querySelector": "" }
+    ],
+    "dependencies": {
+      "modules": ["", ""],
+      "plugins": [{ "uuid": "", "name": "" }],
+      "services": [{ "name": "", "description": "" }]
+    },
+    "compatibility": ["1"]
+  }
+}

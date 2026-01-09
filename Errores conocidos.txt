@@ -105,3 +105,13 @@ Motivo: xml2js que se incluye/empaqueta en el bundle final.
 
 Solución: añadir a los ficheros webpack production dentro de TerserPLugin:
 extractComments: false
+
+9. Error: page.evaluate: TypeError: IDEE.plugin.XXX is not a constructor
+
+Motivo: los ficheros js no están bien definidos.
+
+Solución: añadir el @module al inicio del plugin con la definición correcta.
+Ejemplo: 
+/**
+ * @module IDEE/plugin/XXX
+ */

@@ -1,3 +1,6 @@
+/**
+ * @module IDEE/control/GeosearchControl
+ */
 import GeosearchImpl from '../../impl/ol/js/geosearchcontrol';
 import geosearchHTML from '../../templates/geosearch.html';
 import geosearchResultHTML from '../../templates/geosearchresults.html';

@@ -1,3 +1,6 @@
+/**
+ * @module IDEE/plugin/Geosearch
+ */
 import GeosearchControl from './geosearchcontrol';
 import '../assets/css/geosearch.css';
 import api from '../../api';

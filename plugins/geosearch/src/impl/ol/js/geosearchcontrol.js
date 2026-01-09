@@ -1,8 +1,8 @@
+/**
+ * @module IDEE/impl/control/GeosearchControl
+ */
 import Geosearchlayer from '../../../facade/js/geosearchlayer';
 
-/**
- * @namespace IDEE.impl.control
- */
 export default class GeosearchControl extends IDEE.impl.Control {
   /**
    * @classdesc
