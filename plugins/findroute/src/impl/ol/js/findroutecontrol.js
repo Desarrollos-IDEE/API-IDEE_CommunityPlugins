@@ -129,28 +129,29 @@ export default class FindrouteControl extends IDEE.impl.Control {
         }
       },
       cambiarEstilo: (codigo) => {
-        let marcStyle = new IDEE.style.Point({
-          icon: {
-            src: codigo,
-            scale: 0.25,
-            anchor: [-0.005, 0],
-            anchororigin: 'bottom-left'
-          }
-          /*label: {
-            text: codigo,
-            font: '900 18px "Font Awesome 5 Free"',
-            color: '#9bae0c',
-            scale: 1.2,
-            offset: [0, 0],
-            stroke: {
-              color: '#ffffff',
-                width: 3
-            },
-            rotation: 0,
-            align: IDEE.style.align.LEFT,
-            baseline: IDEE.style.baseline.BOTTOM
-          }*/
-        });
+        let marcStyle = new IDEE.style.Generic({
+          point: {
+            icon: {
+              src: codigo,
+              scale: 0.25,
+              anchor: [-0.005, 0],
+              anchororigin: 'bottom-left'
+            }
+            /*label: {
+              text: codigo,
+              font: '900 18px "Font Awesome 5 Free"',
+              color: '#9bae0c',
+              scale: 1.2,
+              offset: [0, 0],
+              stroke: {
+                color: '#ffffff',
+                  width: 3
+              },
+              rotation: 0,
+              align: IDEE.style.align.LEFT,
+              baseline: IDEE.style.baseline.BOTTOM
+            }*/
+        }});
         return marcStyle;
       },
       getProfile : (profiles) => {
@@ -194,18 +195,20 @@ export default class FindrouteControl extends IDEE.impl.Control {
     this.marcador_ = this.utils.cambiarEstilo('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJMAAACTCAMAAAC9O9snAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAWJQAAFiUBSVIk8AAAAMBQTFRFAAAAvchurbxMoLEfm64Mt8JhtsiApLUuv7+AsL9TqrlBprY2sb9WtMJcpbUzusdss8BZsL5SrLtIqbg+s79Yu8dqvMhvr71Pv8x5vslvrr1OoLIhusZonrAbtcJepLUzvsx0nbAWvspyo7Quvshxsr9WvMh6orQpt8RkobMlrrxKnK4RvspwvcZ7tMFbobMmrr1MucVpvMltqLc6uMVlm64LvMlwvcZxprY1gICAushqm64PucRnq7pGorMpv7+AKYj9mwAAAEB0Uk5TAF3Q/P+bDvQMwuHuu6rxaLLE1+a0cVzIKFrK+339ovI3/kP1T7oX95L61f9SG6360Hxn6oj+UBvvAnP/htv4BPTjbYsAAAJwSURBVHic7dzbVtpAGIbhUUbZKFqIVItsrFXRCm2h1O7r/d9Vw4IQksxMvkBY/xx87ynM5CGEcPRHKVasg8OKXlQ5kpZEHS9By6o1ac6iuk7WkAYpdaLTVaVJpxmS1qf+kbRuipqMJK0lSWcWk+QlZSFpLXdHMF9NsifKShK8omgq23R+9KbVDs6Ci85xeYd/Ww27vCpuetetZF+9bjQPdgT1+uvdEv/7OabaYOh4R1j7ZltRN7nRxs+8bz5U2HulGm5PVOvKfmRLtx+y29xFL95bj2S/cxnq3z8UEA3Mm6z/Y4sc2d3oEQI5Pmv043kqDxX2MecfyX3yn1fvGpdqCht1zJzJp1Hu2sHqva2yUYs+f5nGmtqsbriZGIuWfN0Halm16IJbtc8ztV3xXWoqTYmLv/G5NGUdTVg0YdGEJWb6Zn+J5wmLJiyasGjCogmLJiyasGjCogmLJiyasGjCogmLJiyasGjCogmLJiyasGjCogmLJiyasGjCogmLJiyasGjCogmLJiyasGjC8tB07aFp7qFJ0YTU88/UVt6ZkpNsXphSM6Q+mNJjrfKm5xvlm8kwrgOahkG73nzsvHwPl4wvfpQmOsyKEFNjalqn1Hmr8LxIOsvgqNN0MjMvirMPguVnnW23my5/5oGW/bLNGbur23c0m34XG/CedI27OHI+K8Fk2uqBAbMABg1zLomsaYfHPSBfY/CSu03KtPsI9R/Hr3GIzQ4mTfP8BWB3g7//NjYedXv4HO++TLtEExZNWDRh0YRFExZNWDRh0YRFExZNWDRhTRKmiTRnWcIkjVm1+TSasTQm6nVNepWmeNh/jcwD9KYkeLoAAAAASUVORK5CYII=');
 
     //Estilo de la ruta principal
-    this.rutaPpalStyle = new IDEE.style.Line({
-      fill: {
-        color: '#9bae0c',
-        width: 4
-      },
-      stroke: {
-        color: '#7c8c05',
-        width: 6,
+    this.rutaPpalStyle = new IDEE.style.Generic({
+      line: {
+        fill: {
+          color: '#9bae0c',
+          width: 4
+        },
+        stroke: {
+          color: '#7c8c05',
+          width: 6,
+        }
       }
     });
 
-    this.rutaAltStyle = new IDEE.style.Line({
+    this.rutaAltStyle = new IDEE.style.Generic({
       fill: {
         color: '#72723d',
         width: 6,
@@ -213,15 +216,17 @@ export default class FindrouteControl extends IDEE.impl.Control {
       }
     });
 
-    let stepStyle = new IDEE.style.Point({
-      radius: 9,
-      fill: {  
-        color: '#ffffff',
-        opacity: 0.8
-      },
-      stroke: {
-        color: '#596615',
-        width: 3
+    let stepStyle = new IDEE.style.Generic({
+      point: {
+        radius: 9,
+        fill: {  
+          color: '#ffffff',
+          opacity: 0.8
+        },
+        stroke: {
+          color: '#596615',
+          width: 3
+        }
       }
     });
 
