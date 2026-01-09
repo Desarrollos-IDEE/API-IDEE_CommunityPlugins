@@ -14,5 +14,9 @@ const map = IDEE.map({
 });
 window.map = map;
 
-const mp = new Geosearch({});
+const mp = new Geosearch({
+  url: 'https://geobusquedas-sigc.juntadeandalucia.es',
+  core: 'sigc',
+  handler: '/search?',
+});
 map.addPlugin(mp); window.mp = mp;
