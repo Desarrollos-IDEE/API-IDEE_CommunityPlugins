@@ -5,27 +5,27 @@
 
 # Descripción
 
-Buscador de elementos espaciales a través de un servicio de Geobúsquedas.
+Buscador de elementos espaciales a través de un servicio de Geobúsquedas basado en la ubicación del usuario.
 
 # Dependencias
 
 Para que el plugin funcione correctamente es necesario importar las siguientes dependencias en el documento html:
 Para uso de implementación OpenLayers:
-- **geosearch.ol.min.js**
-- **geosearch.ol.min.css**
+- **geosearchbylocation.ol.min.js**
+- **geosearchbylocation.ol.min.css**
 
 Para uso de implementación Cesium:
-- **geosearch.cesium.min.js**
-- **geosearch.cesium.min.css**
+- **geosearchbylocation.cesium.min.js**
+- **geosearchbylocation.cesium.min.css**
 
 # Uso del histórico de versiones
 
 Existe un histórico de versiones de todos los plugins en el directorio `legacy/` de cada plugin. 
 Es recomendable fijar las versiones para evitar errores inesperados.
 
-Ejemplo con el plugin Geosearch, implementación OpenLayers y versión 1.0.0:
-- geosearch-1.0.0.ol.min.css
-- geosearch-1.0.0.ol.min.js
+Ejemplo con el plugin Archetype, implementación OpenLayers y versión 1.0.0:
+- geosearchbylocation-1.0.0.ol.min.css
+- geosearchbylocation-1.0.0.ol.min.js
 
 # Parámetros
 
@@ -33,13 +33,12 @@ El constructor se inicializa con un JSON con los siguientes atributos:
 - **url**. URL base del servicio de geobúsquedas. Por defecto: `'https://geobusquedas-sigc.juntadeandalucia.es'`
 - **core**. Nombre del núcleo o colección del servicio de geobúsquedas a utilizar. Por defecto: `'sigc'`
 - **handler**. Endpoint del servicio para realizar las búsquedas. Por defecto: `'/search?'`
-- **params**. Objeto con parámetros adicionales de búsqueda que se enviarán al servicio. Por defecto: `{}`
-- **showHelp**. Indica si se muestra la ayuda del plugin (booleano).
+- **distance**. Distancia en la búsqueda.
 
 # API-REST
 
 ```javascript
-URL_API?geosearch=url*core*handler
+URL_API?geosearch=distance*url*core*handler
 ```
 
 <table>
@@ -64,24 +63,19 @@ URL_API?geosearch=url*core*handler
         <td>Base64 ✔️ | Separador ✔️</td>
     </tr>
     <tr>
-        <td>params</td>
-        <td>Objeto con parámetros adicionales de búsqueda</td>
-        <td>Base64 ✔️ | Separador ❌</td>
-    </tr>
-    <tr>
-        <td>showHelp</td>
-        <td>true/false</td>
-        <td>Base64 ✔️ | Separador ❌</td>
+        <td>distance</td>
+        <td>Distancia de la búsqueda</td>
+        <td>Base64 ✔️ | Separador ✔️</td>
     </tr>
 </table>
 
 ### Ejemplos de uso API-REST
 ```
-https://componentes.idee.es/api-idee?geosearch=url*core*handler
+https://componentes.idee.es/api-idee?geosearchbylocation=url*core*handler
 ```
 
 ```
-https://componentes.idee.es/api-idee?geosearch=https://geobusquedas-sigc.juntadeandalucia.es/*sigc*/search
+https://componentes.idee.es/api-idee?geosearchbylocation=600*https://geobusquedas-sigc.juntadeandalucia.es/*sigc*/search
 ```
 
 ### Ejemplo de uso API-REST en base64
@@ -101,13 +95,13 @@ Ejemplo de constructor:
 }
 ```
 ```
-https://componentes.idee.es/api-idee?geosearch=base64=eyJ1cmwiOiJodHRwczovL2dlb2J1c3F1ZWRhcy1zaWdjLmp1bnRhZGVhbmRhbHVjaWEuZXMiLCJjb3JlIjoic2lnYyIsImhhbmRsZXIiOiIvc2VhcmNoPyJ9
+https://componentes.idee.es/api-idee?geosearchbylocation=base64=eyJ1cmwiOiJodHRwczovL2dlb2J1c3F1ZWRhcy1zaWdjLmp1bnRhZGVhbmRhbHVjaWEuZXMiLCJjb3JlIjoic2lnYyIsImhhbmRsZXIiOiIvc2VhcmNoPyJ9
 ```
 
 # Ejemplo de uso
 
 ```javascript
-const mp = new IDEE.plugin.Geosearch({
+const mp = new IDEE.plugin.Geosearchbylocation({
   url: 'https://geobusquedas-sigc.juntadeandalucia.es',
   core: 'sigc',
   handler: '/search?',

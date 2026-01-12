@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="idee" content="yes">
-    <title>Geosearch Production TEST</title>
-    <link href="https://componentes-desarrollo.idee.es/api-idee/assets/css/apiidee.ol.min.css" rel="stylesheet" />
-    <link href="../dist/geosearch.ol.min.css" rel="stylesheet" />
+    <title>Geosearch TEST</title>
+    <link type="text/css" href="https://componentes-desarrollo.idee.es/api-idee/assets/css/apiidee.ol.min.css" rel="stylesheet" />
     <style rel="stylesheet">
         html,
         body {
@@ -25,16 +24,8 @@
     <div id="mapjs" class="container"></div>
     <script type="text/javascript" src="https://componentes-desarrollo.idee.es/api-idee/js/apiidee.ol.min.js"></script>
     <script type="text/javascript" src="https://componentes-desarrollo.idee.es/api-idee/js/configuration.js"></script>
-    <script type="text/javascript" src="../dist/geosearch.ol.min.js"></script>
-    <script type="text/javascript">
-        const map = IDEE.map({
-            container: 'mapjs',
-            projection: 'EPSG:25830',
-            wmcfiles: ['https://mapea4-sigc.juntadeandalucia.es/mapea/files/wmc/mapa.xml'],
-        });
-        const mp = new IDEE.plugin.Geosearch({});
-        map.addPlugin(mp);
-    </script>
+    <script type="text/javascript" src="/main.js"></script>
+
 </body>
 
 </html>
