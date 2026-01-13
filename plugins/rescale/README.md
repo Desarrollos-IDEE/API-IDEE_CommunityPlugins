@@ -25,7 +25,7 @@ Para uso de implementación Cesium:
 Existe un histórico de versiones de todos los plugins en el directorio `legacy/` de cada plugin. 
 Es recomendable fijar las versiones para evitar errores inesperados.
 
-Ejemplo con el plugin rsescale, implementación OpenLayers y versión 1.0.0:
+Ejemplo con el plugin rescale, implementación OpenLayers y versión 1.0.0:
 - rescale-1.0.0.ol.min.css
 - rescale-1.0.0.ol.min.js
 
