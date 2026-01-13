@@ -23,7 +23,7 @@ Para uso de implementación Cesium:
 Existe un histórico de versiones de todos los plugins en el directorio `legacy/` de cada plugin. 
 Es recomendable fijar las versiones para evitar errores inesperados.
 
-Ejemplo con el plugin Archetype, implementación OpenLayers y versión 1.0.0:
+Ejemplo con el plugin geosearchbylocation, implementación OpenLayers y versión 1.0.0:
 - geosearchbylocation-1.0.0.ol.min.css
 - geosearchbylocation-1.0.0.ol.min.js
 

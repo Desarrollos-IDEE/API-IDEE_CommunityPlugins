@@ -1,0 +1,54 @@
+{
+  "url": {
+    "name": "toponomysearch",
+    "separator": "*"
+  },
+  "constructor": "IDEE.plugin.Toponomysearch",
+  "parameters": [{
+    "type": "object",
+    "properties": [{
+      "type": "simple",
+      "name": "url",
+      "position": 0
+    }, {
+      "type": "simple",
+      "name": "core",
+      "position": 1
+    }, {
+      "type": "simple",
+      "name": "handler",
+      "position": 2
+    }]
+  }],
+  "files": {
+    "ol": {
+      "scripts": [
+        "toponomysearch.ol.min.js"
+      ],
+      "styles": [
+        "toponomysearch.ol.min.css"
+      ]
+    },
+    "cesium": {
+      "scripts": [
+        "toponomysearch.cesium.min.js"
+      ],
+      "styles": [
+        "toponomysearch.cesium.min.css"
+      ]
+    }
+  },
+  "metadata": {
+    "name": "Toponomysearch",
+    "description": "Buscador de Topónimos",
+    "text": "Buscador de topónimos en el servicio wfs-nga del IECA",
+    "version": "1.0.0",
+    "date": "13/01/2026",
+    "author": "",
+    "org": "",
+    "tags": "api-idee,plugin",
+    "icon": "./facade/assets/icons/icons.svg",
+    "centralized": true,
+    "compatibility": ["1"]
+  }
+}

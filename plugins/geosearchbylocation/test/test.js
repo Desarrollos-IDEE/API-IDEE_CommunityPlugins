@@ -8,7 +8,7 @@ IDEE.language.setLang('es');
 
 const map = IDEE.map({
   container: 'mapjs',
-  wmcfiles: ['https://mapea4-sigc.juntadeandalucia.es/mapea/files/wmc/mapa.xml'],
+  wmcfiles: ['https://componentes.idee.es/estaticos/Datos/WMC/mapa.xml'],
   projection: 'EPSG:25830'
 });
 window.map = map;

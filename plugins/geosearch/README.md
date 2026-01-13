@@ -81,7 +81,7 @@ https://componentes.idee.es/api-idee?geosearch=url*core*handler
 ```
 
 ```
-https://componentes.idee.es/api-idee?geosearch=https://geobusquedas-sigc.juntadeandalucia.es/*sigc*/search&projection=EPSG:25830&wmcfile=https://mapea4-sigc.juntadeandalucia.es/files/wmc/context_cdau_hibrido.xml*Mapa
+https://componentes.idee.es/api-idee?geosearch=https://geobusquedas-sigc.juntadeandalucia.es/*sigc*/search&projection=EPSG:25830&wmcfile=https://componentes.idee.es/estaticos/Datos/WMC/mapa.xml*Mapa
 ```
 
 ### Ejemplo de uso API-REST en base64
@@ -101,7 +101,7 @@ Ejemplo de constructor:
 }
 ```
 ```
-https://componentes.idee.es/api-idee?geosearch=base64=eyJ1cmwiOiJodHRwczovL2dlb2J1c3F1ZWRhcy1zaWdjLmp1bnRhZGVhbmRhbHVjaWEuZXMiLCJjb3JlIjoic2lnYyIsImhhbmRsZXIiOiIvc2VhcmNoPyJ9&projection=EPSG:25830&wmcfile=https://mapea4-sigc.juntadeandalucia.es/files/wmc/context_cdau_hibrido.xml*Mapa
+https://componentes.idee.es/api-idee?geosearch=base64=eyJ1cmwiOiJodHRwczovL2dlb2J1c3F1ZWRhcy1zaWdjLmp1bnRhZGVhbmRhbHVjaWEuZXMiLCJjb3JlIjoic2lnYyIsImhhbmRsZXIiOiIvc2VhcmNoPyJ9&projection=EPSG:25830&wmcfile=https://componentes.idee.es/estaticos/Datos/WMC/mapa.xml*Mapa
 ```
 
 # Ejemplo de uso

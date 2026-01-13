@@ -68,5 +68,15 @@
     "url_git": "https://github.com/Desarrollos-IDEE/API-IDEE_CommunityPlugins/tree/main/plugins/searchpanel",
     "description": " Plugin para la generación automática de paneles de búsquedas para realizar consultas a diferentes cores de geosearch.",
     "obsolete": false
+  },
+  {
+    "name": "toponomysearch",
+    "plugin": "[toponomysearch]",
+    "version": "v1.0.0",
+    "url_es": "../gallery/toponomysearch/test.html?language=es",
+    "url_en": "../gallery/toponomysearch/test.html?language=en",
+    "url_git": "https://github.com/Desarrollos-IDEE/API-IDEE_CommunityPlugins/tree/main/plugins/toponomysearch",
+    "description": "Buscador de topónimos en el servicio wfs-nga del IECA",
+    "obsolete": false
   }
 ]

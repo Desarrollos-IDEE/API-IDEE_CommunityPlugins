@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-ComyPluginatible" content="IE=edge" />
+    <meta name="idee" content="yes">
+    <title>Toponomysearch</title>
+    <script type="text/javascript" src="../../configuration/config.js"></script>
+    <script type="text/javascript">
+        document.write(`<link href="${IDEE_DOMAIN}/assets/css/apiidee.ol.min.css" rel="stylesheet" />`);
+    </script>
+    <link href="../../plugins/toponomysearch/dist/toponomysearch.ol.min.css" rel="stylesheet" />
+    <script type="text/javascript">
+        document.write(`<link href="${IDEE_DOMAIN}/plugins/sharemap/sharemap.ol.min.css" rel="stylesheet" />`);
+    </script>
+    <style rel="stylesheet">
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label for="inputUrl">Parámetro url</label>
+        <input type="text" id="inputUrl" value="https://geobusquedas-sigc.juntadeandalucia.es" />
+        <label for="inputCore">Parámetro core</label>
+        <input type="text" id="inputCore" value="sigc" />
+        <label for="inputHandler">Parámetro handler</label>
+        <input type="text" id="inputHandler" value="/search?" />
+        <label for="inputParams">Parámetro params</label>
+        <input type="text" id="inputParams" value="{}" />
+        <input type="button" value="Eliminar Plugin" name="eliminar" id="botonEliminar">
+    </div>
+    <div id="mapjs" class="container"></div>
+    <script type="text/javascript">
+        document.write(`<script src="${IDEE_DOMAIN}/vendor/browser-polyfill.js"><\/script>`);
+        document.write(`<script src="${IDEE_DOMAIN}/js/apiidee.ol.min.js"><\/script>`);
+        document.write(`<script src="${IDEE_DOMAIN}/js/configuration.js"><\/script>`);
+        document.write(`<script src="${IDEE_DOMAIN}/plugins/sharemap/sharemap.ol.min.js"><\/script>`);
+    </script>
+    <script type="text/javascript" src="../../plugins/toponomysearch/dist/toponomysearch.ol.min.js"></script>
+
+    <script type="text/javascript">
+        const urlParams = new URLSearchParams(window.location.search);
+        IDEE.language.setLang(urlParams.get('language') || 'es');
+
+        const map = IDEE.map({
+            container: 'mapjs',
+            wmcfiles: ['https://componentes.idee.es/estaticos/Datos/WMC/mapa.xml'],
+            projection: 'EPSG:25830',
+        });
+
+        let mp;
+        let url, core, handler, parameters;
+
+        const inputUrl = document.getElementById("inputUrl");
+        const inputCore = document.getElementById("inputCore");
+        const inputHandler = document.getElementById("inputHandler");
+        const inputParams = document.getElementById("inputParams");
+
+        inputUrl.addEventListener('change', cambiarTest);
+        inputCore.addEventListener('change', cambiarTest);
+        inputHandler.addEventListener('change', cambiarTest);
+        inputParams.addEventListener('change', cambiarTest);
+
+        cambiarTest();
+
+        function cambiarTest() {
+            url = inputUrl.value;
+            core = inputCore.value;
+            handler = inputHandler.value;
+            parameters = inputParams.value;
+            
+            if (mp) map.removePlugins(mp);
+            crearPlugin(url, core, handler, parameters);
+        }
+
+        function crearPlugin(url, core, handler, params) {
+            mp = new IDEE.plugin.Toponomysearch({
+              url: url,
+              core: core,
+              handler: handler,
+              params: JSON.parse(parameters),
+            });
+
+            map.addPlugin(mp);
+        }
+
+        let mp2 = new IDEE.plugin.ShareMap({
+            baseUrl: IDEE_DOMAIN,
+            urlAPI: true,
+            position: "TR",
+        });
+        map.addPlugin(mp2);
+        
+        const botonEliminar = document.getElementById("botonEliminar");
+        botonEliminar.addEventListener("click", function() {
+            map.removePlugins(mp);
+        });
+    </script>
+</body>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script type="text/javascript">
+	document.write(`<script async src="https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}"><\/script>`);
+</script>
+
+<script type="text/javascript"
+	src="../../configuration/google_analytics_content.js"></script>
+
+</html>

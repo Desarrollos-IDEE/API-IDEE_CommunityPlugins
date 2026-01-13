@@ -33,7 +33,7 @@ export default class Geosearchbylocation extends IDEE.Plugin {
      * @private
      * @type {string}
      */
-    this.url_ = 'https://geobusquedas-sigc.juntadeandalucia.es';
+    this.url_ = IDEE.config.GEOSEARCH_URL || 'https://geobusquedas-sigc.juntadeandalucia.es';
     if (!IDEE.utils.isNullOrEmpty(parameters.url)) {
       this.url_ = parameters.url;
     }
@@ -43,7 +43,7 @@ export default class Geosearchbylocation extends IDEE.Plugin {
      * @private
      * @type {string}
      */
-    this.core_ = 'sigc';
+    this.core_ = IDEE.config.GEOSEARCH_CORE || 'sigc';
     if (!IDEE.utils.isNullOrEmpty(parameters.core)) {
       this.core_ = parameters.core;
     }
@@ -53,7 +53,7 @@ export default class Geosearchbylocation extends IDEE.Plugin {
      * @private
      * @type {string}
      */
-    this.handler_ = '/search?';
+    this.handler_ =  IDEE.config.GEOSEARCH_HANDLER || '/search?';
     if (!IDEE.utils.isNullOrEmpty(parameters.handler)) {
       this.handler_ = parameters.handler;
     }
@@ -63,7 +63,7 @@ export default class Geosearchbylocation extends IDEE.Plugin {
      * @private
      * @type {number}
      */
-    this.distance_ = '600';
+    this.distance_ = IDEE.config.GEOSEARCH_DISTANCE || '600';
     if (!IDEE.utils.isNullOrEmpty(parameters.distance)) {
       this.distance_ = parameters.distance;
     }
@@ -73,14 +73,14 @@ export default class Geosearchbylocation extends IDEE.Plugin {
      * @private
      * @type {string}
      */
-    this.spatialField_ = 'geom';
+    this.spatialField_ = IDEE.config.GEOSEARCH_SPATIAL_FIELD || 'geom';
 
     /**
      * Number of responses allowed
      * @private
      * @type {number}
      */
-    this.rows_ = '100';
+    this.rows_ = IDEE.config.GEOSEARCHBYLOCATION_ROWS || '100';
 
     /**
      * Facade of the map
