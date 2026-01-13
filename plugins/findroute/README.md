@@ -101,7 +101,7 @@ https://componentes.idee.es/api-idee?findroute=osrmurl*osrmurlAlternativa*positi
 ```
 
 ```
-https://componentes.idee.es/api-idee?findroute=*https://router.project-osrm.org*.m-bottom.m-left*navigation,tools*http://ws248.juntadeandalucia.es/EXT_PUB_CallejeroREST/geocoderInversoSrs*https://ws248.juntadeandalucia.es/EXT_PUB_CallejeroREST/geocoderMunProvSrs*https://ws248.juntadeandalucia.es/EXT_PUB_CallejeroREST/normalizar
+https://componentes.idee.es/api-idee?findroute=*https://router.project-osrm.org*.m-top.m-left*navigation,tools*http://ws248.juntadeandalucia.es/EXT_PUB_CallejeroREST/geocoderInversoSrs*https://ws248.juntadeandalucia.es/EXT_PUB_CallejeroREST/geocoderMunProvSrs*https://ws248.juntadeandalucia.es/EXT_PUB_CallejeroREST/normalizar&layers=OSM&projection=EPSG:25830
 ```
 
 ### Ejemplo de uso API-REST en base64
@@ -129,7 +129,7 @@ Ejemplo de constructor:
 ```
 
 ```
-https://componentes.idee.es/api-idee?findroute=base64=eyJvcHRpb25zIjp7InNlYXJjaHN0cmVldFVybCI6Imh0dHBzOi8vd3MyNDguanVudGFkZWFuZGFsdWNpYS5lcy9FWFRfUFVCX0NhbGxlamVyb1JFU1QvZ2VvY29kZXJNdW5Qcm92U3JzIiwic2VhcmNoc3RyZWV0Tm9ybWFsaXphciI6Imh0dHBzOi8vd3MyNDguanVudGFkZWFuZGFsdWNpYS5lcy9FWFRfUFVCX0NhbGxlamVyb1JFU1Qvbm9ybWFsaXphciIsIm9zcm11cmxBbHRlcm5hdGl2YSI6Imh0dHBzOi8vcm91dGVyLnByb2plY3Qtb3NybS5vcmciLCJwYW5lbCI6eyJwb3NpdGlvbiI6Ii5tLWJvdHRvbS5tLWxlZnQifSwiY29uZmxpY3RlZFBsdWdpbnMiOlsibmF2aWdhdGlvbiIsInRvb2xzIiwicGFuZWxTZWxlY3RCeVBvbHlnb24iXSwidXJsR2VvY29kZXJJbnZlcnNvIjoiaHR0cDovL3dzMjQ4Lmp1bnRhZGVhbmRhbHVjaWEuZXMvRVhUX1BVQl9DYWxsZWplcm9SRVNUL2dlb2NvZGVySW52ZXJzb1NycyJ9fQ==
+https://componentes.idee.es/api-idee?findroute=base64=eyJvcHRpb25zIjp7InNlYXJjaHN0cmVldFVybCI6Imh0dHBzOi8vd3MyNDguanVudGFkZWFuZGFsdWNpYS5lcy9FWFRfUFVCX0NhbGxlamVyb1JFU1QvZ2VvY29kZXJNdW5Qcm92U3JzIiwic2VhcmNoc3RyZWV0Tm9ybWFsaXphciI6Imh0dHBzOi8vd3MyNDguanVudGFkZWFuZGFsdWNpYS5lcy9FWFRfUFVCX0NhbGxlamVyb1JFU1Qvbm9ybWFsaXphciIsIm9zcm11cmxBbHRlcm5hdGl2YSI6Imh0dHBzOi8vcm91dGVyLnByb2plY3Qtb3NybS5vcmciLCJwYW5lbCI6eyJwb3NpdGlvbiI6Ii5tLWJvdHRvbS5tLWxlZnQifSwiY29uZmxpY3RlZFBsdWdpbnMiOlsibmF2aWdhdGlvbiIsInRvb2xzIiwicGFuZWxTZWxlY3RCeVBvbHlnb24iXSwidXJsR2VvY29kZXJJbnZlcnNvIjoiaHR0cDovL3dzMjQ4Lmp1bnRhZGVhbmRhbHVjaWEuZXMvRVhUX1BVQl9DYWxsZWplcm9SRVNUL2dlb2NvZGVySW52ZXJzb1NycyJ9fQ==&layers=OSM&projection=EPSG:25830
 ```
 
 ## Ejemplo de uso

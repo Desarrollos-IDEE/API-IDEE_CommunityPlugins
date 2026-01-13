@@ -52,7 +52,7 @@ export default class Geosearch extends IDEE.Plugin {
      * @private
      * @type {String}
      */
-    this.url_ = 'https://geobusquedas-sigc.juntadeandalucia.es';
+    this.url_ = IDEE.config.GEOSEARCH_URL || 'https://geobusquedas-sigc.juntadeandalucia.es';
     if (!IDEE.utils.isNullOrEmpty(parameters.url)) {
       this.url_ = parameters.url;
     }
@@ -62,7 +62,7 @@ export default class Geosearch extends IDEE.Plugin {
      * @private
      * @type {String}
      */
-    this.core_ = 'sigc';
+    this.core_ = IDEE.config.GEOSEARCH_CORE || 'sigc';
     if (!IDEE.utils.isNullOrEmpty(parameters.core)) {
       this.core_ = parameters.core;
     }
@@ -72,7 +72,7 @@ export default class Geosearch extends IDEE.Plugin {
      * @private
      * @type {String}
      */
-    this.handler_ = '/search?';
+    this.handler_ = IDEE.config.GEOSEARCH_HANDLER || '/search?';
     if (!IDEE.utils.isNullOrEmpty(parameters.handler)) {
       this.handler_ = parameters.handler;
     }

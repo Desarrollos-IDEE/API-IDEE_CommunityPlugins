@@ -113,7 +113,7 @@ export default class GeosearchControl extends IDEE.Control {
     this.searchParameters_ = searchParameters;
     if (!IDEE.utils.isNullOrEmpty(this.searchParameters_)) {
       if (IDEE.utils.isNullOrEmpty(this.searchParameters_.rows)) {
-        this.searchParameters_.rows = IDEE.config.GEOSEARCH_ROWS;
+        this.searchParameters_.rows = IDEE.config.GEOSEARCH_ROWS || 20;
       }
       this.searchUrl_ = IDEE.utils.addParameters(this.searchUrl_, this.searchParameters_);
     }

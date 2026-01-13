@@ -78,12 +78,12 @@ export default class Findroute extends IDEE.Plugin {
      * @private
      * @type {string}
      */
-    this.url_ = this.options_.searchstreetUrl || 'https://ws248.juntadeandalucia.es/EXT_PUB_CallejeroREST/geocoderMunProvSrs';
+    this.url_ = this.options_.searchstreetUrl || IDEE.config.SEARCHSTREET_URL || 'https://ws248.juntadeandalucia.es/EXT_PUB_CallejeroREST/geocoderMunProvSrs';
 
     /**
      * Service URL (Searchstreet Normalizar)
      */
-    this.searchstreetNormalizar = this.options_.searchstreetNormalizar || 'https://ws248.juntadeandalucia.es/EXT_PUB_CallejeroREST/normalizar';
+    this.searchstreetNormalizar = this.options_.searchstreetNormalizar || IDEE.config.SEARCHSTREET_NORMALIZAR || 'https://ws248.juntadeandalucia.es/EXT_PUB_CallejeroREST/normalizar';
   }
 
   /**
