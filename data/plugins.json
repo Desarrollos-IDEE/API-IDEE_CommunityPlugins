@@ -50,6 +50,26 @@
     "obsolete": false
   },
   {
+    "name": "searchstreet",
+    "plugin": "[searchstreet]",
+    "version": "v1.0.0",
+    "url_es": "../gallery/searchstreet/test.html?language=es",
+    "url_en": "../gallery/searchstreet/test.html?language=en",
+    "url_git": "https://github.com/Desarrollos-IDEE/API-IDEE_CommunityPlugins/tree/main/plugins/searchstreet",
+    "description": "Buscador de vías y portales a través del Servicio de Geocodificación del Callejero Digital de Andalucía Unificado (CDAU).",
+    "obsolete": false
+  },
+  {
+    "name": "searchstreetgeosearch",
+    "plugin": "[searchstreetgeosearch]",
+    "version": "v1.0.0",
+    "url_es": "../gallery/searchstreetgeosearch/test.html?language=es",
+    "url_en": "../gallery/searchstreetgeosearch/test.html?language=en",
+    "url_git": "https://github.com/Desarrollos-IDEE/API-IDEE_CommunityPlugins/tree/main/plugins/searchstreetgeosearch",
+    "description": "Buscador combinado de elementos espaciales a través de un servicio de Geobúsquedas y de direcciones postales a través del CDAU.",
+    "obsolete": false
+  },
+  {
     "name": "printerdos",
     "plugin": "[printerdos]",
     "version": "v1.0.0",

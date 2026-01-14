@@ -1,0 +1,56 @@
+{
+  "url": {
+    "name": "searchstreetgeosearch"
+  },
+  "constructor": "IDEE.plugin.SearchstreetGeosearch",
+  "parameters": [{
+    "type": "object",
+    "properties": [{
+      "type": "simple",
+      "name": "locality",
+      "position": 0
+    }]
+  }],
+  "files": {
+    "ol": {
+      "scripts": [
+        "searchstreetgeosearch.ol.min.js"
+      ],
+      "styles": [
+        "searchstreetgeosearch.ol.min.css"
+      ]
+    },
+    "cesium": {
+      "scripts": [
+        "searchstreetgeosearch.cesium.min.js"
+      ],
+      "styles": [
+        "searchstreetgeosearch.cesium.min.css"
+      ]
+    }
+  },
+  "metadata": {
+    "uuid_plugin": "Buscador combinado de elementos espaciales a través de un servicio de Geobúsquedas y de direcciones postales a través del CDAU.",
+    "uuid_version_plugin": "Buscador combinado de elementos espaciales a través de un servicio de Geobúsquedas y de direcciones postales a través del CDAU.",
+    "version_ficha_metadatos": "",
+    "name": "SearchstreetGeosearch",
+    "description": "",
+    "text": "",
+    "version": "1.0.0",
+    "date": "14/01/2026",
+    "author": "Junta de Andalucía",
+    "org": "Junta de Andalucía",
+    "tags": "mapea,plugin",
+    "icon": "./facade/assets/icons/icons.svg",
+    "buttons": [
+      { "title": "", "description": "", "querySelector": "" },
+      { "title": "", "description": "", "querySelector": "" }
+    ],
+    "dependencies": {
+      "modules": ["", ""],
+      "plugins": [{ "uuid": "", "name": "" }],
+      "services": [{ "name": "", "description": "" }]
+    },
+    "compatibility": ["1"]
+  }
+}
