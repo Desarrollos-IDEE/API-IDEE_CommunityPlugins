@@ -1,5 +1,5 @@
 /**
- * @module M/impl/control/SearchpanelControl
+ * @module IDEE/impl/control/SearchpanelControl
  */
 export default class SearchpanelControl extends IDEE.impl.Control {
   /**

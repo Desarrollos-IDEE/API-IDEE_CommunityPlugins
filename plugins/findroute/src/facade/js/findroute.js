@@ -1,5 +1,5 @@
 /**
- * @module M/plugin/Findroute
+ * @module IDEE/plugin/Findroute
  */
 
  import FindrouteControl from './findroutecontrol.js';

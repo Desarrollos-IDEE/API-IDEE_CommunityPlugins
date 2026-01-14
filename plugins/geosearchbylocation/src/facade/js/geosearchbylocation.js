@@ -53,7 +53,7 @@ export default class Geosearchbylocation extends IDEE.Plugin {
      * @private
      * @type {string}
      */
-    this.handler_ =  IDEE.config.GEOSEARCH_HANDLER || '/search?';
+    this.handler_ = IDEE.config.GEOSEARCH_HANDLER || '/search?';
     if (!IDEE.utils.isNullOrEmpty(parameters.handler)) {
       this.handler_ = parameters.handler;
     }

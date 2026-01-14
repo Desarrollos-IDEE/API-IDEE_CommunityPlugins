@@ -1,5 +1,5 @@
 /**
- * @module M/plugin/CatalogSearch
+ * @module IDEE/plugin/CatalogSearch
  */
 import 'assets/css/catalogsearch';
 import CatalogSearchControl from './catalogsearchcontrol';

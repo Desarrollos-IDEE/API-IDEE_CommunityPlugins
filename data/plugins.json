@@ -50,6 +50,16 @@
     "obsolete": false
   },
   {
+    "name": "printerdos",
+    "plugin": "[printerdos]",
+    "version": "v1.0.0",
+    "url_es": "../gallery/printerdos/test.html?language=es",
+    "url_en": "../gallery/printerdos/test.html?language=en",
+    "url_git": "https://github.com/Desarrollos-IDEE/API-IDEE_CommunityPlugins/tree/main/plugins/printerdos",
+    "description": "Plugin para realizar impresiones de mapas.",
+    "obsolete": false
+  },
+  {
     "name": "rescale",
     "plugin": "[rescale]",
     "version": "v1.0.0",

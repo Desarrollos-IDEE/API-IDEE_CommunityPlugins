@@ -1,3 +1,3 @@
 /**
- * @module M/impl/control/SearchpanelControl
+ * @module IDEE/impl/control/SearchpanelControl
  */

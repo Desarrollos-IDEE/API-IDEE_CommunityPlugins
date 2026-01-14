@@ -1,5 +1,5 @@
 /**
- * @module M/plugin/Toponomysearch
+ * @module IDEE/plugin/Toponomysearch
  */
 import 'assets/css/toponomysearch';
 import ToponomySearchControl from './toponomysearchcontrol';

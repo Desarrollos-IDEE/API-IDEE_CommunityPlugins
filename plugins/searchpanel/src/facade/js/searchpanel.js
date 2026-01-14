@@ -1,5 +1,5 @@
 /**
- * @module M/plugin/Searchpanel
+ * @module IDEE/plugin/Searchpanel
  */
 import 'assets/css/searchpanel';
 import SearchpanelControl from './searchpanelcontrol';

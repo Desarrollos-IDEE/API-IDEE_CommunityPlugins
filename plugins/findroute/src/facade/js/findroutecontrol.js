@@ -1,5 +1,5 @@
 /**
- * @module M/Control/FindrouteControl
+ * @module IDEE/Control/FindrouteControl
  */
 
 import FindrouteImplControl from 'impl/findroutecontrol';

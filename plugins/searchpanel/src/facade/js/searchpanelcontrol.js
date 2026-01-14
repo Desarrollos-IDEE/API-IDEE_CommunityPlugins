@@ -1,5 +1,5 @@
 /**
- * @module M/control/SearchpanelControl
+ * @module IDEE/control/SearchpanelControl
  */
 
 import SearchpanelImplControl from 'impl/searchpanelcontrol';

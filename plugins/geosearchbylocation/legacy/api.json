@@ -30,7 +30,15 @@
         "geosearchbylocation.ol.min.js"
       ],
       "styles": [
-        "geosearchbylocation.min.css"
+        "geosearchbylocation.ol.min.css"
+      ]
+    },
+    "cesium": {
+      "scripts": [
+        "geosearchbylocation.cesium.min.js"
+      ],
+      "styles": [
+        "geosearchbylocation.cesium.min.css"
       ]
     }
   },

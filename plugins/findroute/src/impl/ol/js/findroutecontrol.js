@@ -1,5 +1,5 @@
 /**
- * @module M/impl/Control/FindrouteControl
+ * @module IDEE/impl/Control/FindrouteControl
  */
 
 export default class FindrouteControl extends IDEE.impl.Control {

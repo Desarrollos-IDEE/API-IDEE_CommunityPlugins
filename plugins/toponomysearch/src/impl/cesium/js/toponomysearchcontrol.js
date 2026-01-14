@@ -1,3 +1,3 @@
 /**
- * @module M/impl/control/ToponomysearchControl
+ * @module IDEE/impl/control/ToponomysearchControl
  */

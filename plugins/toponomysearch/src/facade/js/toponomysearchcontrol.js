@@ -1,6 +1,6 @@
 /* eslint-disable */ 
 /**
- * @module M/control/ToponomysearchControl
+ * @module IDEE/control/ToponomysearchControl
  */
 
 import ToponomysearchImplControl from 'impl/toponomysearchcontrol';
