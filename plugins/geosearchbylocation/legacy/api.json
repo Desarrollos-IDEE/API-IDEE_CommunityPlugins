@@ -47,7 +47,7 @@
     "uuid_version_plugin": "",
     "version_ficha_metadatos": "",
     "name": "GeosearchByLocation",
-    "description": "Search for locations within a given radius from a location user.",
+    "description": "Busque ubicaciones dentro de un radio determinado desde un usuario de ubicación.",
     "text": "",
     "version": "1.0.0",
     "date": "12/01/26",

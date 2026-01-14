@@ -165,7 +165,7 @@ export default class PrinterControl extends IDEE.impl.Control {
   encodeKML(layer) {
     let encodedLayer = null;
 
-    const olLayer = layer.getImpl().getOL3Layer();
+    const olLayer = layer.getImpl().getLayer();
     const features = olLayer.getSource().getFeatures();
     const layerName = layer.name;
     const layerOpacity = olLayer.getOpacity();
@@ -347,7 +347,7 @@ export default class PrinterControl extends IDEE.impl.Control {
    */
   encodeWMS(layer) {
     let encodedLayer = null;
-    const olLayer = layer.getImpl().getOL3Layer();
+    const olLayer = layer.getImpl().getLayer();
     const layerUrl = layer.url;
     const layerOpacity = olLayer.getOpacity();
     // const tiled = layer.getImpl().tiled;
@@ -434,7 +434,7 @@ export default class PrinterControl extends IDEE.impl.Control {
     }
     if (continuePrint) {
       const projection = this.facadeMap_.getProjection();
-      const olLayer = layer.getImpl().getOL3Layer();
+      const olLayer = layer.getImpl().getLayer();
       let features = null;
       // Esta condición sirve para que las capas MVT no provoquen un error.
       // Te devuelve la capa sin estilos.
@@ -726,7 +726,7 @@ export default class PrinterControl extends IDEE.impl.Control {
       continuePrint = false;
     }
     if (continuePrint) {
-      const olLayer = layer.getImpl().getOL3Layer();
+      const olLayer = layer.getImpl().getLayer();
       const features = layer.getFeatures();
       const layerName = layer.name;
       const layerOpacity = olLayer.getOpacity();
@@ -1069,7 +1069,7 @@ export default class PrinterControl extends IDEE.impl.Control {
   encodeWMTS(layer) {
     const zoom = this.facadeMap_.getZoom();
     const layerImpl = layer.getImpl();
-    const olLayer = layerImpl.getOL3Layer();
+    const olLayer = layerImpl.getLayer();
     const layerSource = olLayer.getSource();
     const tileGrid = layerSource.getTileGrid();
     const style = !IDEE.utils.isNullOrEmpty(layerSource.getStyle) ? layerSource.getStyle() : 'default';
@@ -1141,7 +1141,7 @@ export default class PrinterControl extends IDEE.impl.Control {
     let encodedLayer = null;
 
     const layerImpl = layer.getImpl();
-    const olLayer = layerImpl.getOL3Layer();
+    const olLayer = layerImpl.getLayer();
     const layerSource = olLayer.getSource();
     const tileGrid = layerSource.getTileGrid();
 
@@ -1179,7 +1179,7 @@ export default class PrinterControl extends IDEE.impl.Control {
     let encodedLayer = null;
 
     const layerImpl = layer.getImpl();
-    const olLayer = layerImpl.getOL3Layer();
+    const olLayer = layerImpl.getLayer();
     const layerSource = olLayer.getSource();
     const tileGrid = layerSource.getTileGrid();
 

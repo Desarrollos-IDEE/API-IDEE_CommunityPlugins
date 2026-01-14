@@ -421,11 +421,15 @@ export default class SearchstreetControl extends IDEE.Control {
           }
           if (!IDEE.utils.isNullOrEmpty(results)) {
             this.provincia_ = IDEE.utils.beautifyString(provincia);
-            processor.call(this, results);
+            if (processor && typeof processor === 'function') {
+              processor.call(this, results);
+            }
             this.element_.classList.remove(SearchstreetControl.SEARCHING_CLASS);
             this.resultsContainer_.classList.remove(SearchstreetControl.MINIMUM);
           } else {
-            processor.call(this, results);
+            if (processor && typeof processor === 'function') {
+              processor.call(this, results);
+            }
             this.element_.classList.remove(SearchstreetControl.SEARCHING_CLASS);
             this.resultsContainer_.classList.remove(SearchstreetControl.MINIMUM);
           }
@@ -466,7 +470,9 @@ export default class SearchstreetControl extends IDEE.Control {
               if (!IDEE.utils.isNullOrEmpty(results) && results.geocoderMunProvSrsResponse
                 .geocoderMunProvSrsReturn.geocoderMunProvSrsReturn.coordinateX !== 0) {
                 this.provincia_ = IDEE.utils.beautifyString(provincia);
-                processor.call(this, results);
+                if (processor && typeof processor === 'function') {
+                  processor.call(this, results);
+                }
                 this.element_.classList.remove(SearchstreetControl.SEARCHING_CLASS);
                 this.resultsContainer_.classList.remove(SearchstreetControl.MINIMUM);
               }

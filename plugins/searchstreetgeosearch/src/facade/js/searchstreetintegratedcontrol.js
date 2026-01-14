@@ -157,7 +157,7 @@ export default class SearchstreetIntegrated extends SearchstreetControl {
           if (query.indexOf(',') > -1) {
             query = query.substring(0, pos);
           }
-          this.search_(`${query} ,  ${this.municipio_}  ( ${this.provincia_} ), ${this.showResults_}`);
+          this.search_(`${query} ,  ${this.municipio_}  ( ${this.provincia_} )`, this.showResults_);
         } else {
           this.search_(query, this.showResults_);
         }

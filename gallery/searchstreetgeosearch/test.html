@@ -49,6 +49,10 @@
         const urlParams = new URLSearchParams(window.location.search);
         IDEE.language.setLang(urlParams.get('language') || 'es');
 
+        IDEE.config.PROXY_URL = 'https://mapea4-sigc.juntadeandalucia.es/mapea/api/proxy';
+        IDEE.config.PROXY_POST_URL = 'https://mapea4-sigc.juntadeandalucia.es/mapea/proxyPost';
+        IDEE.proxy(true);
+
         const map = IDEE.map({
             container: 'mapjs',
             projection: 'EPSG:25830',

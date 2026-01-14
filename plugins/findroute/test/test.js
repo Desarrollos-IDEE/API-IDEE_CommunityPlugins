@@ -1,9 +1,8 @@
 import Findroute from 'facade/findroute.js';
 
-IDEE.proxy(false);
-
 IDEE.config.PROXY_URL = 'https://mapea4-sigc.juntadeandalucia.es/mapea/api/proxy';
 IDEE.config.PROXY_POST_URL = 'https://mapea4-sigc.juntadeandalucia.es/mapea/proxyPost';
+IDEE.proxy(true);
 
 var myMap = IDEE.map({
   container: 'mapjs',

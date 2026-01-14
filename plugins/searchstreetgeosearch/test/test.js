@@ -14,6 +14,6 @@ const map = IDEE.map({
 window.map = map;
 
 const mp = new SearchStreetGeosearch({
-  locality: '41091',
+  // locality: '41091',
 });
 map.addPlugin(mp); window.mp = mp;
