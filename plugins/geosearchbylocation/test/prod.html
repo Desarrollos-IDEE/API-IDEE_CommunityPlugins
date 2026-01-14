@@ -27,6 +27,10 @@
     <script type="text/javascript" src="https://componentes-desarrollo.idee.es/api-idee/js/configuration.js"></script>
     <script type="text/javascript" src="../dist/geosearch.ol.min.js"></script>
     <script type="text/javascript">
+        IDEE.config.PROXY_URL = 'https://mapea4-sigc.juntadeandalucia.es/mapea/api/proxy';
+        IDEE.config.PROXY_POST_URL = 'https://mapea4-sigc.juntadeandalucia.es/mapea/proxyPost';
+        IDEE.proxy(true);
+
         const map = IDEE.map({
             container: 'mapjs',
         });
