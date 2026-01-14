@@ -30,31 +30,31 @@
         <label for="inputUrl">Parámetro url</label>
         <input type="text" id="inputUrl" value="https://geoprint-sigc.juntadeandalucia.es/geoprint3/print/SIGC" />
         <label for="inputParams">Parámetro params</label>
-        <input type="text" id="inputParams" value="{
-            urlApplication: 'https://geoprint-sigc.juntadeandalucia.es/geoprint3',
-            layout: {
-              outputFilename: 'impresion_${yyyy-MM-dd_hhmmss}',
-            },
-            parameters: {
-              imagenCoordenadas: 'file://windrose.png',
-              imagenAndalucia: 'file://logo_JA.png',
-            }
-          }" />
+        <textarea id="inputParams" rows="5" cols="20">{
+  "urlApplication": "https://geoprint-sigc.juntadeandalucia.es/geoprint3",
+  "layout": {
+    "outputFilename": "impresion_${yyyy-MM-dd_hhmmss}"
+  },
+  "parameters": {
+    "imagenCoordenadas": "file://windrose.png",
+    "imagenAndalucia": "file://logo_JA.png"
+  }
+}</textarea>
         <label for="inputOptions">Parámetro options</label>
-        <input type="text" id="inputOptions" value="{
-            legend: true,
-            dpi: 300,
-            layout: 'A4 landscape (SIGC)',
-            format: 'png',
-            conflictResolution: true,  // Solo una vez, elige el valor que necesites
-            goodnessOfFit: 0.5,
-            allowOverruns: false,
-            autoWrap: 400,
-            followLine: true,
-            group: false,
-            maxDisplacement: 400,
-            spaceAround: 50
-          }" />
+        <textarea id="inputOptions" rows="5" cols="20">{
+  "legend": true,
+  "dpi": 300,
+  "layout": "A4 landscape (SIGC)",
+  "format": "png",
+  "conflictResolution": true,
+  "goodnessOfFit": 0.5,
+  "allowOverruns": false,
+  "autoWrap": 400,
+  "followLine": true,
+  "group": false,
+  "maxDisplacement": 400,
+  "spaceAround": 50
+}</textarea>
         <input type="button" value="Eliminar Plugin" name="eliminar" id="botonEliminar">
     </div>
     <div id="mapjs" class="container"></div>

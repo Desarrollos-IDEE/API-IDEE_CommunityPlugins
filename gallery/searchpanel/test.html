@@ -33,7 +33,22 @@
         <input type="text" name="options" id="inputOptions" value='{"position": "TR"}'>
 
         <label for="inputConfig">Parámetro config</label>
-        <input type="text" name="config" id="inputConfig" value='{"title": "Buscador de Espacios Productivos", "geosearchUrl": "https://www.juntadeandalucia.es/institutodeestadisticaycartografia/geobusquedas/eepp-f1/search?", "maxResults": 100, "fields": [{"field": "municipio", "alias": "Municipio", "label": "Escribe el nombre del Municipio"}, {"field": "provincia", "alias": "Provincia", "label": "Escribe el nombre de la Provincia"}, {"field": "nombre", "alias": "Nombre", "label": "Escribe el nombre del Espacio Productivo"}], "infoFields": [{"field": "nombre", "alias": "Nombre "}, {"field": "tipologia", "alias": "Tipología"}, {"field": "municipio", "alias": "Municipio"}, {"field": "provincia", "alias": "Provincia"}]}'>
+        <textarea name="config" id="inputConfig" rows="5" cols="20">{
+  "title": "Buscador de Espacios Productivos",
+  "geosearchUrl": "https://www.juntadeandalucia.es/institutodeestadisticaycartografia/geobusquedas/eepp-f1/search?",
+  "maxResults": 100,
+  "fields": [
+    {"field": "municipio", "alias": "Municipio", "label": "Escribe el nombre del Municipio"},
+    {"field": "provincia", "alias": "Provincia", "label": "Escribe el nombre de la Provincia"},
+    {"field": "nombre", "alias": "Nombre", "label": "Escribe el nombre del Espacio Productivo"}
+  ],
+  "infoFields": [
+    {"field": "nombre", "alias": "Nombre "},
+    {"field": "tipologia", "alias": "Tipología"},
+    {"field": "municipio", "alias": "Municipio"},
+    {"field": "provincia", "alias": "Provincia"}
+  ]
+}</textarea>
 		<input type="button" value="Eliminar Plugin" name="eliminar" id="botonEliminar">
 	</div>
     <div id="mapjs" class="container"></div>
