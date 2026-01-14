@@ -6,7 +6,7 @@ test('Test PrinterDos', async ({ page }) => {
     window.mapjs = IDEE.map({
       container: 'mapjs',
     });
-    window.mp = new IDEE.plugin.PrinterDos({});
+    window.mp = new IDEE.plugin.Printer({});
     window.mapjs.addPlugin(window.mp);
   });
   
