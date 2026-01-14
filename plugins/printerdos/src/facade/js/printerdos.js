@@ -73,7 +73,7 @@ export default class Printer extends IDEE.Plugin {
     this.params_ = {
       urlApplication: IDEE.config.geoprint2.URL_APPLICATION,
       layout: {
-        outputFilename: 'mapea_${yyyy-MM-dd_hhmmss}',
+        outputFilename: 'apiidee_${yyyy-MM-dd_hhmmss}',
       },
     };
     if (!IDEE.utils.isNullOrEmpty(parameters.params)) {
@@ -84,7 +84,7 @@ export default class Printer extends IDEE.Plugin {
 
       if (IDEE.utils.isNullOrEmpty(this.params_.layout)) {
         this.params_.layout = {
-          outputFilename: 'mapea_${yyyy-MM-dd_hhmmss}',
+          outputFilename: 'apiidee_${yyyy-MM-dd_hhmmss}',
         };
       }
     }
