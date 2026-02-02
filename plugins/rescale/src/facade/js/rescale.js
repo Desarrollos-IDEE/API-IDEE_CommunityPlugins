@@ -100,7 +100,7 @@ export default class Rescale extends IDEE.Plugin {
     if (lang === 'en' || lang === 'es') {
       return (lang === 'en') ? en : es;
     }
-    return IDEE.language.getTranslation(lang).rescale;
+    return IDEE.language.getTranslation(lang);
   }
 
   /**
