@@ -1,6 +1,6 @@
 import Archetype from 'facade/archetype';
 
-M.language.addTranslation('ca', {
+IDEE.language.addTranslation('ca', {
   "scale": {
       "title": "Escala",
       "scale": "Escala",
@@ -21,9 +21,9 @@ M.language.addTranslation('ca', {
   }
 });
 
-M.language.setLang('ca');
+IDEE.language.setLang('ca');
 
-const mapa = M.map({
+const mapa = IDEE.map({
   container: 'mapjs',
   controls: ['scale*true'],
 });
