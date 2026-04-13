@@ -14,7 +14,7 @@ If you don't want to include a polyfill, you can use an empty module like this:
  @ ./src/facade/js/catalogsearch.js 18:0-58 118:26-46
  @ ./src/index-ol.js 1:0-170 3:32-54
 
-Motivo: al cambiar de versión de Webpack ya no incluye timers.
+Motivo: al cambiar de versión de Webpack ya no se incluye la librería timers.
 
 Solución: 
 - Instalar timers-browserify: npm install --save-dev timers-browserify
@@ -42,10 +42,11 @@ If you don't want to include a polyfill, you can use an empty module like this:
 1 warning has detailed information that is not shown.
 Use 'stats.errorDetails: true' resp. '--stats-error-details' to show it.
 
-Motivo: al cambiar de versión de Webpack ya no incluye stream.
+Motivo: al cambiar de versión de Webpack ya no se incluye la librería stream.
 
 Solución: se comprueba que no se usa, aunque depende de la librería sax que a su vez depende de xml2js que sí que se usa, por lo que se puede desactivar.
 Añadir en los ficheros Webpack dentro de fallback: stream: false,
+
 
 3. ERROR in ./node_modules/safe-buffer/index.js 2:13-30
 Module not found: Error: Can't resolve 'buffer' in '/home/carmenmarquez/proyectos/UNIFICACION/SUBIDA/plugins/API-IDEE_CommunityPlugins/plugins/catalogsearch/node_modules/safe-buffer'
@@ -64,16 +65,17 @@ resolve 'buffer' in '/home/carmenmarquez/proyectos/UNIFICACION/SUBIDA/plugins/AP
     Field 'browser' doesn't contain a valid alias configuration
     resolve as module
 
-Motivo: al cambiar de versión de Webpack ya no incluye stream.
+Motivo: al cambiar de versión de Webpack ya no se incluye la librería stream.
 
 Solución: en el caso del plugin que se estaba tratando el módulo buffer es necesario porque timers-browserify depende de safe-buffer.
 - Instalar la librería: npm install --save-dev buffer
 - Añadir en los ficheros Webpack dentro de fallback:
 buffer: require.resolve('buffer/'),
 
+
 4. error  'M' is not defined  no-undef
 
-Motivo: ahora se llama IDEE.
+Motivo: cambio de nombre de la variable M por IDEE.
 
 Solución: sustituir "M." por "IDEE." en todos los ficheros.
 
@@ -86,12 +88,14 @@ this.panel_.addControls([control, undefined]);
 
 Solución: no añadir controles indefinidos, nulos...
 
+
 6. Problemas con visualización de plugins que no dispone de panel como tal, es sólo el círculo pero se muestra cuadrado.
 
 Motivo: problemas con el CSS.
 
-Solución: añadir al botón la regla
+Solución: añadir al botón del plugin la regla CSS
 border-radius: 20px;
+
 
 7. El plugin no se añade por API-REST y no da error.
 
@@ -99,12 +103,14 @@ Motivo: el fichero api.json no está configurado correctamente.
 
 Solución: en el atributo name se debe especificar el nombre en minúsculas completo.
 
+
 8. Se genera en dist el versionado de el fichero LICENSE
 
 Motivo: xml2js que se incluye/empaqueta en el bundle final.
 
 Solución: añadir a los ficheros webpack production dentro de TerserPLugin:
 extractComments: false
+
 
 9. Error: page.evaluate: TypeError: IDEE.plugin.XXX is not a constructor
 
@@ -115,3 +121,52 @@ Ejemplo:
 /**
  * @module IDEE/plugin/XXX
  */
+
+
+10. Error: Access to XMLHttpRequest at '<URL>' from origin 'http://localhost:6123' has been blocked by CORS policy: The 'Access-Control-Allow-Origin' header contains multiple values '*, *', but only one is allowed.
+
+Motivo: el servidor no está configurado correctamente para permitir peticiones CORS desde el origen indicado.
+
+Solución: activar/configurar el proxy para evitar problemas CORS.
+
+
+11. Error: AppendChild on null (referente al contenedor)
+
+Motivo: al cambiar de Mapea a API-IDEE el método appendChild no funciona ya que el contenedor cambia.
+
+Solución:
+- Sustituir en los contenedores mapea por api-idee.
+ EJ: 'div.m-mapea-container' por 'div.m-api-idee-container'
+
+
+12. ERROR constructor sin new
+Uncaught (in promise) TypeError: Class constructor a cannot be invoked without 'new'
+    at Control.addTo (Control.js:33:24)
+    at Control.js:124:14
+
+Motivo: al cambiar de Mapea a API-IDEE la herencia de clases ha cambiado.
+
+Solución:
+- Modificar el constructor para que contenga new 
+EJ: Cambiar
+    ol.control.Control.call(this, {...})  olMap.addControl(olControl); 
+	por
+    const olControl = new ol.control.Control({ ...})  olMap.addControl(olControl);
+
+
+13. ERROR  Can't resolve 'assert' 
+Module not found: Error: Can't resolve 'assert' 
+BREAKING CHANGE: webpack < 5 used to include polyfills for node.js core modules by default.
+This is no longer the case. Verify if you need this module and configure a polyfill for it.
+
+If you want to include a polyfill, you need to:
+	- add a fallback 'resolve.fallback: { "assert": require.resolve("assert/") }'
+	- install 'assert'
+If you don't want to include a polyfill, you can use an empty module like this:
+	resolve.fallback: { "assert": false }
+
+Motivo: Si una dependencia necesita el módulo `assert` de Node.js, pero no está disponible en el entorno del navegador, se debe configurar un polyfill o desactivar la dependencia.
+
+Solución:
+- Añadir en el archivo de configuración de webpack la siguiente línea en el apartado de resolve.fallback:
+      assert: false,
