@@ -21,7 +21,7 @@ IDEE.language.addTranslation('ca', {
   }
 });
 
-IDEE.language.setLang('ca');
+IDEE.language.setLang('es');
 
 const mapa = IDEE.map({
   container: 'mapjs',
@@ -47,7 +47,7 @@ window.mp = mp;
 
 mapa.addPlugin(mp);
 
-// map.addPlugin(new IDEE.plugin.Help({}));
+mapa.addPlugin(new IDEE.plugin.Help({}));
 
 
 // console.log(IDEE.language.getTranslation('es').archetype);
