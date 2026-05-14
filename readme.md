@@ -12,6 +12,7 @@ API-IDEE_CommunityPlugins/
 │   └── plugins.js              # Fichero necesario para generar la galería (estático)
 ├── data/                       # Datos
 │   └── plugins.json            # Ficheros donde se dan de alta todos los plugins disponibles para mostrar en la galería y permitir su uso por API-REST
+│   └── resourcesPlugins.js     # Fichero donde se consulta el versionado de los plugins
 └── gallery/                    # Galería de ejemplo de los plugins
 │   └── archetype/              # Test para mostrar en la galería del plugin básico (interactivo)
 │   └── .../                    # Otros test de plugins
@@ -87,6 +88,13 @@ Ejemplo con el plugin Archetype:
 <link href="https://componentes.idee.es/api-idee-communityplugins/plugins/archetype/dist/archetype.ol.min.css" rel="stylesheet" />
 <script type="text/javascript" src="https://componentes.idee.es/api-idee-communityplugins/plugins/archetype/dist/archetype.ol.min.js"></script>
 ```
+
+Además en el directorio `data/` existe el fichero `resourcesPlugins.json` que muestra la información de todas las versiones disponibles así como su compatiibilidad con API-IDEE.
+Este fichero se consume a través de API-IDEE permitiendo consultas como:
+- Mostrar el listado completo de plugins https://componentes.idee.es/api-idee/api/actions/resourcesPlugins
+- Filtrado por nombre https://componentes.idee.es/api-idee/api/actions/resourcesPlugins?name=archetype
+- Filtrado por nombre y versión de API-IDEE https://componentes.idee.es/api-idee/api/actions/resourcesPlugins?name=archetype&version=1.0.0
+- Filtrado por nombre, versión de API-IDEE y tipo de recurso https://componentes.idee.es/api-idee/api/actions/resourcesPlugins?name=archetype&version=1.0.0&type=css
 
 
 ## Desarrollo
@@ -182,7 +190,7 @@ Para la ejecución de test automáticos es necesario ejecutar previamente `npx -
    > 3.4. Implementar test en desarrollo y automático (playwright)
 4. Compila y prueba tu plugin
 5. Desarrolla un test funcional en la galería (Puedes usar como plantilla el plugin archetype)
-6. Dar de alta en el json de plugins (/data/plugins) el plugin desarrollado (necesario para que aparezca en la galería)
+6. Dar de alta en el json de plugins (/data/plugins) el plugin desarrollado (necesario para que aparezca en la galería) y tambien en el json de resourcesPlugins (/data/resourcesPlugins) para que se muestre el versionado.
 7. Envía un Pull Request
 
 
