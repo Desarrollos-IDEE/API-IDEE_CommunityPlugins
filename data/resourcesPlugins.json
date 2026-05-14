@@ -1,0 +1,46 @@
+{
+  "plugins": [
+    {
+      "name": "archetype",
+      "obsolete": "false",
+      "versions": [
+        {
+          "api-idee": "1.1.0",
+          "js": "https://componentes.idee.es/api-idee-communityplugins/plugins/archetype/dist/archetype-1.0.0.ol.min.js",
+          "css": "https://componentes.idee.es/api-idee-communityplugins/plugins/archetype/dist/archetype-1.0.0.ol.min.css"
+        },
+        {
+          "api-idee": "1.0.0",
+          "js": "https://componentes.idee.es/api-idee-communityplugins/plugins/archetype/dist/archetype-1.0.0.ol.min.js",
+          "css": "https://componentes.idee.es/api-idee-communityplugins/plugins/archetype/dist/archetype-1.0.0.ol.min.css"
+        },
+        {
+          "api-idee": "latest",
+          "js": "https://componentes.idee.es/api-idee-communityplugins/plugins/archetype/dist/archetype.ol.min.js",
+          "css": "https://componentes.idee.es/api-idee-communityplugins/plugins/archetype/dist/archetype.ol.min.css"
+        }
+      ]
+    },
+    {
+      "name": "rescale",
+      "obsolete": "true",
+      "versions": [
+        {
+          "api-idee": "1.1.0",
+          "js": "https://componentes.idee.es/api-idee-communityplugins/plugins/rescale/dist/rescale-1.0.0.ol.min.js",
+          "css": "https://componentes.idee.es/api-idee-communityplugins/plugins/rescale/dist/rescale-1.0.0.ol.min.css"
+        },
+        {
+          "api-idee": "1.0.0",
+          "js": "https://componentes.idee.es/api-idee-communityplugins/plugins/rescale/dist/rescale-1.0.0.ol.min.js",
+          "css": "https://componentes.idee.es/api-idee-communityplugins/plugins/rescale/dist/rescale-1.0.0.ol.min.css"
+        },
+        {
+          "api-idee": "latest",
+          "js": "https://componentes.idee.es/api-idee-communityplugins/plugins/rescale/dist/rescale.ol.min.js",
+          "css": "https://componentes.idee.es/api-idee-communityplugins/plugins/rescale/dist/rescale.ol.min.css"
+        }
+      ]
+    }
+  ]
+}
