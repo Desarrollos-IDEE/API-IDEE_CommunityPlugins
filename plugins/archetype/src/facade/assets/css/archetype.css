@@ -1,69 +1,88 @@
-/** Estilos propios*/
+/*************************************************
+   ICONOS PROPIOS ARCHETYPE
+*************************************************/
 
-.m-areas>div.m-area>div.m-panel.m-plugin-archetype.collapsed {
-    max-height: 40px;
+/*
+ * Única nomenclatura soportada:
+ *
+ * g-cartografia-btn-archetype-*
+ *
+ * Las mask-image concretas se definen
+ * exclusivamente en fonts.css.
+ */
+
+[class^='g-cartografia-btn-archetype-'],
+[class*=' g-cartografia-btn-archetype-'] {
+  speak: none;
+
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+
+  text-transform: none;
+
+  line-height: 1;
+
+  color: inherit;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.m-areas>div.m-area>div.m-panel.m-plugin-archetype.opened {
-    width: max-content;
+[class^='g-cartografia-btn-archetype-']::before,
+[class*=' g-cartografia-btn-archetype-']::before {
+  content: '' !important;
+
+  display: inline-block;
+
+  box-sizing: border-box;
+
+  width: 20px;
+  min-width: 20px;
+
+  height: 20px;
+  min-height: 20px;
+
+  aspect-ratio: 1;
+
+  background-color: currentColor;
+
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  -webkit-mask-size: contain;
+  mask-size: contain;
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  vertical-align: middle;
 }
 
-.m-areas>div.m-area>div.m-plugin-archetype.collapsed>button.m-panel-btn {
-    background-color: #71a7d3 !important;
-    font-family: 'archetype' !important;
-}
-
-.m-areas>div.m-area>div.m-plugin-archetype.opened>button.m-panel-btn {
-    background-color: white !important;
-    color: #71a7d3 !important;
-}
-
-.m-areas>div.m-area.m-left>div.m-plugin-archetype.opened>button.m-panel-btn {
-    position: absolute;
-    margin-left: 240px;
-    background-color: #71a7d3;
-}
-
-.m-areas>div.m-area.m-left>div.m-plugin-archetype.opened.no-collapsible {
-    border-radius: 4px;
-}
-
-.m-areas>div.m-area.m-right>div.m-plugin-archetype.opened>button.m-panel-btn {
-    position: absolute;
-    left: -40px;
-    background-color: #71a7d3;
-}
-
-.m-areas>div.m-area>div.m-plugin-archetype.opened>button.m-panel-btn.opened-left {
-    position: absolute;
-    right: -2.53rem;
-    left: unset !important;
-    color: #71a7d3;
-}
-
-.m-areas>div.m-area>div.m-plugin-archetype.opened>button.m-panel-btn.opened-right {
-    position: absolute;
-    left: -2.53rem;
-    right: unset !important;
-    color: #71a7d3;
-}
-
-#div-contenedor-m-archetype {
-    display: block;
-}
 
 /*********************
-     TITLE
+       GENERAL
 *********************/
 
-.m-control.m-container.m-archetype>div.title {
-    color: #fff !important;
-    background-color: #71a7d3;
-    font-family: 'Muli',
-        'sans-serif' !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    font-size: 15px;
-    height: 39px;
-    line-height: 40px;
-    text-align: center;
+.m-plugin-archetype .m-archetype-container,
+.m-archetype-container {
+  color: var(--idee-color-neutral-70);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px !important;
+  border-radius: 0 !important;
+  font-family: Muli, sans-serif;
+  background-color: var(--idee-color-white);
+}
+
+.m-plugin-archetype .m-plugin-panel-content {
+  margin: 0;
+  padding: 0;
+}
+
+.m-archetype-container p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--idee-color-neutral-70);
 }

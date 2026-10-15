@@ -6,32 +6,25 @@ import ArchetypeImplControl from 'impl/archetypecontrol';
 import template from 'templates/archetype';
 import { getValue } from './i18n/language';
 
+/**
+ * @classdesc
+ * Control de ejemplo del plugin Archetype.
+ */
 export default class ArchetypeControl extends IDEE.Control {
   /**
-   * @classdesc
-   * Constructor de la clase. Crea un control ArchetypeControl
-   *
    * @constructor
    * @extends {IDEE.Control}
+   * @param {Object} options control options
    * @api stable
    */
-  constructor(isDraggable) {
-    // 1. Comprueba si la implementación puede crear el control
+  constructor(options = {}) {
     if (IDEE.utils.isUndefined(ArchetypeImplControl)
       || (IDEE.utils.isObject(ArchetypeImplControl)
       && IDEE.utils.isNullOrEmpty(Object.keys(ArchetypeImplControl)))) {
       IDEE.exception(getValue('exception.impl'));
     }
-    // 2. Crea la implementación del control
     const impl = new ArchetypeImplControl();
-    super(impl, 'Archetype');
-
-    /**
-     * Indicador de si el plugin puede arrastrarse o no
-     * @public
-     * @type {boolean}
-     */
-    this.isDraggable_ = isDraggable || false;
+    super(ArchetypeControl.NAME, impl, options);
   }
 
   /**
@@ -43,20 +36,13 @@ export default class ArchetypeControl extends IDEE.Control {
    * @api stable
    */
   createView(map) {
-    return new Promise((success, fail) => {
-      const html = IDEE.template.compileSync(template, {
-        vars: {
-          translations: {
-            title: getValue('title'),
-            text: getValue('text'),
-          },
+    this.map_ = map;
+    return IDEE.template.compileSync(template, {
+      vars: {
+        translations: {
+          text: getValue('text'),
         },
-      });
-
-      if (this.isDraggable_) {
-        IDEE.utils.draggabillyPlugin(this.getPanel(), '#m-archetype-title');
-      }
-      success(html);
+      },
     });
   }
 
@@ -72,3 +58,12 @@ export default class ArchetypeControl extends IDEE.Control {
     return control instanceof ArchetypeControl;
   }
 }
+
+/**
+ * Name of this control
+ * @const
+ * @type {string}
+ * @public
+ * @api stable
+ */
+ArchetypeControl.NAME = 'Archetype';

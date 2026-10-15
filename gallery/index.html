@@ -9,7 +9,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>API IDEE - Community Plugins</title>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            type="text/css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
 
         <style type="text/css">
@@ -249,21 +250,98 @@
                 line-height: .75em;
                 vertical-align: middle;
             }
+
+            .gallery-section {
+                margin-bottom: 1rem;
+                border: 1px solid #e1e4e8;
+                border-radius: 4px;
+                background: #fff;
+            }
+
+            .gallery-section-toggle {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                padding: 0.85rem 1.25rem;
+                border: 0;
+                background: #f6f8fa;
+                color: #1f6b75;
+                font-size: 1.15rem;
+                font-weight: 700;
+                text-align: left;
+                cursor: pointer;
+            }
+
+            .gallery-section-toggle:hover,
+            .gallery-section-toggle:focus {
+                background: #eef3f5;
+                color: #268591;
+                outline: none;
+            }
+
+            .gallery-section-toggle[aria-expanded="false"] .gallery-section-icon {
+                transform: rotate(-90deg);
+            }
+
+            .gallery-section-icon {
+                margin-right: 0.5rem;
+                transition: transform 0.2s ease;
+            }
+
+            .gallery-section-count {
+                margin-left: auto;
+                background-color: #268591;
+                color: #fff;
+            }
+
+            .gallery-section-body {
+                padding: 0 1rem 1rem;
+            }
+
+            .plugin-card-migrated {
+                background-color: rgba(38, 133, 145, 0.12);
+            }
+
+            .plugin-card-pending {
+                background-color: rgba(240, 128, 128, 0.15);
+            }
+
+            .plugin-tag-badge {
+                background-color: #268591;
+                color: #fff;
+                font-size: 0.75rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .plugin-tag-badge.badge-pending {
+                background-color: #c92a2a;
+            }
+
+            .empty-gallery {
+                text-align: center;
+                color: #6c757d;
+                padding: 2rem;
+            }
         </style>
     </head>
 
 <body>
 
     <header class="navbar navbar-expand-md navbar-dark mb-3 py-0 fixed-top" role="navigation">
-        <a class="navbar-brand" href="#"><img class="header-logo" src="https://componentes.idee.es/estaticos/imagenes/logos/logo-apicnig.png" alt="">&nbsp;API-IDEE Community Plugins</a> Tests
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#olmenu" aria-controls="olmenu" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="#"><img class="header-logo"
+                src="https://componentes.idee.es/estaticos/imagenes/logos/logo-apicnig.png" alt="">&nbsp;API-IDEE
+            Community Plugins</a> Tests
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#olmenu" aria-controls="olmenu"
+            aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <nav class="collapse navbar-collapse" id="olmenu">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                 </li>
-                <li class="nav-item"><a target="_blank" class="nav-link" href="https://github.com/Desarrollos-IDEE/API-IDEE_CommunityPlugins"><i class="fas fa-user-graduate"></i> Información</a></li>
+                <li class="nav-item"><a target="_blank" class="nav-link"
+                        href="https://github.com/Desarrollos-IDEE/API-IDEE_CommunityPlugins"><i
+                            class="fas fa-user-graduate"></i> Información</a></li>
             </ul>
         </nav>
     </header>
@@ -271,30 +349,83 @@
     <main class="container mt-5">
         <section class="col-md-12 m-auto">
             <h3 class="text-center mb-3">
-                <i class="fas fa-puzzle-piece"> <span style="font-family: 'Quattrocento Sans', sans-serif;">GALERÍA DE PLUGINS</span></i>
+                <i class="fas fa-puzzle-piece"> <span style="font-family: 'Quattrocento Sans', sans-serif;">GALERÍA DE
+                        PLUGINS</span></i>
             </h3>
-            <div class="form-group">
-                <input type="text" class="form-control form-control-lg" placeholder="Buscar plugin" name="search" id="search">
+            <div class="text-center mb-4">
+                <a class="btn btn-primary" href="./testmezclados/test.html" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-layer-group"></i> Integración multi-plugin (TEST)
+                </a>
             </div>
-            <div id="match-list" class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-3 py-5">
+            <div class="form-row mb-3">
+                <div class="form-group col-md-6 mb-md-0">
+                    <input type="text" class="form-control form-control-lg" placeholder="Buscar plugin" name="search"
+                        id="search">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="galleryPluginLineSelect" class="sr-only">Entorno / QRL API-IDEE</label>
+                    <select id="galleryPluginLineSelect" class="form-control form-control-lg version-form"
+                        title="QRL / entorno de API-IDEE (versionesApiIdee.json)"></select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="galleryApiVersionSelect" class="sr-only">Versión API-IDEE</label>
+                    <select id="galleryApiVersionSelect" class="form-control form-control-lg version-form"
+                        title="Versión de API-IDEE para la QRL seleccionada"></select>
+                </div>
+            </div>
+            <p id="galleryPluginLineDescription" class="text-center text-muted small mb-3"></p>
+            <div id="gallery-empty" class="empty-gallery d-none"></div>
+            <div id="gallery-sections">
+                <div class="gallery-section" data-section="migrated">
+                    <button class="gallery-section-toggle" type="button" data-toggle="collapse"
+                        data-target="#collapse-migrated" aria-expanded="true" aria-controls="collapse-migrated">
+                        <i class="fas fa-chevron-down gallery-section-icon" aria-hidden="true"></i>
+                        <span>Plugins refactorizados (API-IDEE v2)</span>
+                        <span class="gallery-section-count badge" id="count-migrated">0</span>
+                    </button>
+                    <div id="collapse-migrated" class="collapse show">
+                        <div class="gallery-section-body">
+                            <div id="match-list-migrated"
+                                class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 py-2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-section" data-section="pending">
+                    <button class="gallery-section-toggle" type="button" data-toggle="collapse"
+                        data-target="#collapse-pending" aria-expanded="true" aria-controls="collapse-pending">
+                        <i class="fas fa-chevron-down gallery-section-icon" aria-hidden="true"></i>
+                        <span>Plugins pendientes de migración</span>
+                        <span class="gallery-section-count badge" id="count-pending">0</span>
+                    </button>
+                    <div id="collapse-pending" class="collapse show">
+                        <div class="gallery-section-body">
+                            <div id="match-list-pending"
+                                class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 py-2"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section class="col-md-12 m-auto">
             <h3 class="text-center mb-3">
-                <i class="fas fa-gamepad"> <span style="font-family: 'Quattrocento Sans', sans-serif;">PLUGINS OBSOLETOS</span></i>
+                <i class="fas fa-gamepad"> <span style="font-family: 'Quattrocento Sans', sans-serif;">PLUGINS
+                        OBSOLETOS</span></i>
             </h3>
             <div id="match-list-obsolete" class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-3 py-5">
             </div>
         </section>
     </main>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../configuration/config.js"></script>
+    <script src="../configuration/gallery-plugin-line.js"></script>
     <script>
-        (function() {
+        (function () {
             var stringtoolsScript = document.createElement('script');
-            stringtoolsScript.src = IDEE_DOMAIN + '/js/stringtools.js';
-            stringtoolsScript.onload = function() {
+            stringtoolsScript.src = IDEE_REFACTOR_DOMAIN + '/js/stringtools.js';
+            stringtoolsScript.onload = function () {
                 var pluginsScript = document.createElement('script');
                 pluginsScript.src = '../configuration/plugins.js';
                 document.head.appendChild(pluginsScript);
@@ -306,10 +437,9 @@
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script type="text/javascript">
-	document.write(`<script async src="https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}"><\/script>`);
+    document.write(`<script async src="https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}"><\/script>`);
 </script>
 
-<script type="text/javascript"
-	src="../configuration/google_analytics_content.js"></script>
+<script type="text/javascript" src="../configuration/google_analytics_content.js"></script>
 
 </html>

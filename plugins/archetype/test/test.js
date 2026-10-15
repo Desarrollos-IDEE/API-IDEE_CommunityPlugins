@@ -1,65 +1,71 @@
 import Archetype from 'facade/archetype';
 
-IDEE.language.addTranslation('ca', {
-  "scale": {
-      "title": "Escala",
-      "scale": "Escala",
-      "level": "Nivell"
-  },
-  "archetype": {
-    exception: {
-      impl: "La implementació no pot crear controls d'Archetype."
-    },
-    text: "Contingut del plugin d'exemple.",
-    textHelp: {
-      help1: "Text d'exemple 1.",
-      help2: "Text d'exemple 2",
-      help3: "Text d'exemple 3"
-    },
-    title: "Plantilla plugin",
-    tooltip: "Plantilla plugin"
-  }
-});
+IDEE.language.setLang(window.localStorage.getItem('language') || 'es');
 
-IDEE.language.setLang('es');
-
-const mapa = IDEE.map({
+const map = IDEE.map({
   container: 'mapjs',
-  controls: ['scale*true'],
+  controls: ['scale'],
+});
+window.map = map;
+
+let mp;
+
+const createPlugin = (options) => {
+  mp = new Archetype(options);
+  window.mp = mp;
+  map.addPlugin(mp);
+};
+
+const removePlugin = () => {
+  if (mp) {
+    try {
+      map.removePlugins(mp);
+    } catch (err) {
+      console.error(err);
+    }
+    mp = null;
+  }
+};
+
+const botonEliminar = document.getElementById('botonEliminar');
+if (botonEliminar) {
+  botonEliminar.addEventListener('click', () => { removePlugin(); });
+}
+
+const selectPosicion = document.getElementById('selectPosicion');
+const selectCollapsed = document.getElementById('selectCollapsed');
+const inputOrder = document.getElementById('inputOrder');
+const inputTooltip = document.getElementById('inputTooltip');
+
+const updatePlugin = () => {
+  const options = {
+    position: selectPosicion
+      ? selectPosicion.options[selectPosicion.selectedIndex].value
+      : 'right',
+    collapsed: selectCollapsed
+      ? selectCollapsed.options[selectCollapsed.selectedIndex].value === 'true'
+      : true,
+    order: inputOrder ? Number(inputOrder.value) : 0,
+    tooltip: inputTooltip ? inputTooltip.value : 'Plantilla plugin',
+  };
+
+  removePlugin();
+  createPlugin(options);
+};
+
+[
+  selectPosicion,
+  selectCollapsed,
+  inputOrder,
+  inputTooltip,
+].filter(Boolean).forEach((ctrl) => {
+  ctrl.addEventListener('change', updatePlugin);
 });
 
-// IDEE.language.setLang('es');
-// IDEE.language.setLang('en');
+updatePlugin();
 
-// const map = IDEE.map({
-//   container: 'mapjs',
-// });
-// window.map = map;
-
-const mp = new Archetype({
-  position: 'TL', // TR, BR, TL, BL
-  collapsed: true,
-  collapsible: true,
-  tooltip: 'Plantilla',
-  isDraggable: true,
-});
-window.mp = mp;
-
-mapa.addPlugin(mp);
-
-mapa.addPlugin(new IDEE.plugin.Help({}));
-
-
-// console.log(IDEE.language.getTranslation('es').archetype);
-
-const es = Archetype.getJSONTranslations('es');
-// const en = Archetype.getJSONTranslations('en');
-
-// IDEE.language.getTranslation('es').archetype = es;
-// IDEE.language.getTranslation('en').archetype = en;
-
-// console.log(IDEE.language.getTranslation('es').archetype);
-// console.log(IDEE.language.getTranslation('en').archetype);
-
-// console.log(IDEE.language.getValue('archetype', 'es'));
-// console.log(IDEE.language.getValue('archetype', 'en'));
+try {
+  map.addPlugin(new IDEE.plugin.Help({}));
+} catch (err) {
+  console.error(err);
+}

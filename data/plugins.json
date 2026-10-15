@@ -7,7 +7,10 @@
     "url_en": "../gallery/archetype/test.html?language=en",
     "url_git": "https://github.com/Desarrollos-IDEE/API-IDEE_CommunityPlugins/tree/main/plugins/archetype",
     "description": "Plugin plantilla para crear otros plugins externos.",
-    "obsolete": false
+    "obsolete": false,
+    "tags": [
+      "migrated"
+    ]
   },
   {
     "name": "rescale",
@@ -17,6 +20,9 @@
     "url_en": "../gallery/rescale/test.html?language=en",
     "url_git": "https://github.com/Desarrollos-IDEE/API-IDEE_CommunityPlugins/tree/main/plugins/rescale",
     "description": "Hace zoom a la escala elegida.",
-    "obsolete": true
+    "obsolete": true,
+    "tags": [
+      "pending"
+    ]
   }
 ]
