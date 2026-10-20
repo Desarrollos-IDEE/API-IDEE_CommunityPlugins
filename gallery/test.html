@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Test plugin</title>
+    <script type="text/javascript" src="../configuration/config.js"></script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: sans-serif;
+        }
+
+        #config-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 12px;
+            background: #f6f8fa;
+            color: #24292f;
+            border-bottom: 1px solid #e1e4e8;
+        }
+
+        #config-bar label {
+            margin: 0;
+        }
+
+        #config-bar select {
+            padding: 4px 8px;
+        }
+
+        #test-frame {
+            width: 100%;
+            height: calc(100% - 42px);
+            border: 0;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="config-bar">
+        <label for="env-selector">Entorno</label>
+        <select id="env-selector"></select>
+        <label for="version-selector">Versión</label>
+        <select id="version-selector"></select>
+    </div>
+    <iframe id="test-frame" title="Test del plugin"></iframe>
+</body>
+
+</html>

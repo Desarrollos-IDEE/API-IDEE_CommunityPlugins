@@ -1,0 +1,115 @@
+/* Colapso: barra entorno/versión + parámetros */
+
+.gallery-test-collapse-toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	margin: 0;
+	padding: 0.35rem 0.65rem;
+	border: 1px solid #d0d7de;
+	border-radius: 4px;
+	background: #fff;
+	color: #1f6b75;
+	font-family: sans-serif;
+	font-size: 0.875rem;
+	font-weight: 600;
+	line-height: 1.2;
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+.gallery-test-collapse-toggle:hover,
+.gallery-test-collapse-toggle:focus {
+	background: #eef3f5;
+	color: #268591;
+	border-color: #268591;
+	outline: none;
+}
+
+.gallery-test-collapse-icon {
+	display: inline-block;
+	transition: transform 0.2s ease;
+}
+
+.gallery-test-collapse-toggle[aria-expanded="false"] .gallery-test-collapse-icon {
+	transform: rotate(-90deg);
+}
+
+#config-bar {
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: stretch;
+	gap: 0.4rem;
+	padding: 0.35rem 0.75rem;
+	box-sizing: border-box;
+}
+
+#config-bar .gallery-test-collapse-header {
+	display: flex;
+	align-items: center;
+}
+
+#config-bar .gallery-test-collapse-body {
+	display: flex !important;
+	flex-wrap: nowrap;
+	align-items: center;
+	gap: 0.5rem 0.75rem;
+	width: 100%;
+}
+
+#config-bar .gallery-test-collapse-body[hidden] {
+	display: none !important;
+}
+
+#config-bar .gallery-test-collapse-body > label {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 0.875rem;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+#config-bar select {
+	width: auto;
+	max-width: 16rem;
+	min-width: 8rem;
+	height: 30px;
+	padding: 0.2rem 0.5rem;
+	margin: 0;
+	font-size: 0.875rem;
+	border: 1px solid #ced4da;
+	border-radius: 0.2rem;
+	box-sizing: border-box;
+}
+
+.gallery-test-params-header {
+	display: flex;
+	align-items: center;
+	padding: 0.25rem 0.5rem;
+	background: #f6f8fa;
+	border-bottom: 1px solid #e1e4e8;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.m-api-idee-test-form-frame[hidden] {
+	display: none !important;
+}
+
+body:has(> .m-api-idee-test-form-frame) > #mapjs,
+body:has(> .m-api-idee-test-form-frame) > .m-container,
+body.gallery-test-v1-layout > #mapjs,
+body.gallery-test-v1-layout > .m-container,
+body.gallery-test-v1-layout > .container {
+	flex: 1 1 auto;
+	min-height: 0;
+	width: 100%;
+}
+
+body.gallery-test-v1-layout {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+}

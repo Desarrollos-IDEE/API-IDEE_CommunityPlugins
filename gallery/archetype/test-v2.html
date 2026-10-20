@@ -8,19 +8,13 @@
     <meta name="idee" content="yes">
     <title>Archetype</title>
     <script type="text/javascript" src="../../configuration/config.js"></script>
-    <script src="../../configuration/gallery-plugin-line.js"></script>
-    <script>
-        (function () {
-            applyGalleryApiDomainsToWindow(getGalleryEnvironmentId());
-        })();
-    </script>
     <script type="text/javascript">
-        document.write(`<link href="${getGalleryApiIdeeCssUrl()}" rel="stylesheet" />`);
+        document.write(`<link href="${IDEE_DOMAIN}/assets/css/apiidee${IDEE_VERSION_SUFFIX}.ol.min.css" rel="stylesheet" />`);
     </script>
     <link href="../../plugins/archetype/dist/archetype.ol.min.css" rel="stylesheet" />
-    <script type="text/javascript">document.write(`<link href="${getGalleryApiDomain()}/plugins/help/help.ol.min.css" rel="stylesheet" />`);</script>
+    <script type="text/javascript">document.write(`<link href="${IDEE_DOMAIN}/plugins/help/help.ol.min.css" rel="stylesheet" />`);</script>
     <script type="text/javascript">
-        document.write(`<link href="${getGalleryApiDomain()}/plugins/sharemap/sharemap.ol.min.css" rel="stylesheet" />`);
+        document.write(`<link href="${IDEE_DOMAIN}/plugins/sharemap/sharemap.ol.min.css" rel="stylesheet" />`);
     </script>
     <style rel="stylesheet">
         html,
@@ -71,13 +65,13 @@
     </div>
     <div id="mapjs" class="m-container"></div>
     <script type="text/javascript">
-        document.write(`<script src="${getGalleryApiDomain()}/vendor/browser-polyfill.js"><\/script>`);
-        document.write(`<script src="${getGalleryApiIdeeJsUrl()}"><\/script>`);
-        document.write(`<script src="${getGalleryApiConfigurationJsUrl()}"><\/script>`);
-        document.write(`<script src="${getGalleryApiDomain()}/plugins/sharemap/sharemap.ol.min.js"><\/script>`);
+        document.write(`<script src="${IDEE_DOMAIN}/vendor/browser-polyfill.js"><\/script>`);
+        document.write(`<script src="${IDEE_DOMAIN}/js/apiidee${IDEE_VERSION_SUFFIX}.ol.min.js"><\/script>`);
+        document.write(`<script src="${IDEE_DOMAIN}/js/configuration${IDEE_VERSION_SUFFIX}.js"><\/script>`);
+        document.write(`<script src="${IDEE_DOMAIN}/plugins/sharemap/sharemap.ol.min.js"><\/script>`);
     </script>
     <script type="text/javascript" src="../../plugins/archetype/dist/archetype.ol.min.js"></script>
-    <script type="text/javascript">document.write(`<script src="${getGalleryApiDomain()}/plugins/help/help.ol.min.js"><\/script>`);</script></script>
+    <script type="text/javascript">document.write(`<script src="${IDEE_DOMAIN}/plugins/help/help.ol.min.js"><\/script>`);</script></script>
     <script type="text/javascript">
         const urlParams = new URLSearchParams(window.location.search);
         IDEE.language.setLang(urlParams.get('language') || 'es');
