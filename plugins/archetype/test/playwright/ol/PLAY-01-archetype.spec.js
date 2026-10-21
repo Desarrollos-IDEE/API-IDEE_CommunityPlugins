@@ -6,10 +6,15 @@ test('Test Archetype', async ({ page }) => {
     window.mapjs = IDEE.map({
       container: 'mapjs',
     });
-    window.mp = new IDEE.plugin.Archetype({});
+    window.mp = new IDEE.plugin.Archetype({
+      position: 'right',
+      collapsed: true,
+      order: 0,
+      tooltip: 'Plantilla plugin',
+    });
     window.mapjs.addPlugin(window.mp);
   });
-  
+
   const nPlugins = await page.evaluate(() => window.mapjs.getPlugins().length);
   expect(nPlugins).toBe(1);
 });
