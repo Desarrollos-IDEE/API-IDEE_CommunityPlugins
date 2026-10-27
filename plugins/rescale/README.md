@@ -150,8 +150,8 @@ npm i
 ### 2️⃣ Arranque del servidor de desarrollo / *Run Application*
 
 ```bash
-npm start:ol
-npm start:cesium
+npm run start:ol
+npm run start:cesium
 ```
 
 ## 📂 Estructura del código / *Code scaffolding*
